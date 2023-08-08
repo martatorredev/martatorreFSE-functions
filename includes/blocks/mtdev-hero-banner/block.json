@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"title": "Hero Banner",
+	"name": "mtdev/hero-banner",
+	"category": "widgets",
+	"icon": "align-full-width",
+	"supports": {
+		"html": false,
+		"align": ["full", "wide", "center"]
+	},
+	"attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+		"title": {
+			"type": "string",
+			"selector": ".hero-banner__title"
+		},
+		"subtitle": {
+			"type": "string",
+			"selector": ".hero-banner__subtitle"
+		},
+    "comment": {
+			"type": "string",
+			"selector": ".hero-banner__comment"
+		},
+    "titleLevel": {
+			"type": "number",
+			"default": 2
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/style-index.css",
+	"style": "file:./build/style-index.css"
+}
