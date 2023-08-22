@@ -1,0 +1,36 @@
+{
+	"apiVersion": 3,
+	"name": "mtdev/latest-projects",
+	"title": "Últimos proyectos",
+	"category": "widgets",
+	"icon": "align-wide",
+  "supports": {
+    "align": false,
+    "html": false
+  },
+  "attributes": {
+    "align": {
+      "type": "string"
+    },
+    "category": {
+      "type": "number"
+    },
+    "order": {
+      "type": "string",
+			"default": "desc"
+		},
+		"orderBy": {
+      "type": "string",
+			"default": "date"
+		},
+    "numberOfItems": {
+      "type": "number",
+      "default": 3
+    }
+  },
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./style-index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
+
