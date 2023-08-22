@@ -42,9 +42,11 @@ if ( $latest_posts->have_posts() ) {
         <?php
         $id = get_the_id();
         $primary_category_id = get_post_meta( $id, 'rank_math_primary_mis_proyectos_web_category', true );
-        $category = $primary_category_id
-          ? get_term( $primary_category_id, 'mis_proyectos_web_category' )
-          : get_the_terms( $id, 'mis_proyectos_web_category' )[0];
+        $category = get_term( $primary_category_id, 'mis_proyectos_web_category' );
+
+        if ( !$category || is_wp_error( $category ) ) {
+          $category = get_the_terms( $id, 'mis_proyectos_web_category' )[0];
+        }
 
         echo '<ul class="latest-projects-grid-item__categories">';
 
