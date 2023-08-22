@@ -1,11 +1,13 @@
 import {
   RichText,
   useBlockProps,
-  BlockControls
+  BlockControls,
+  InnerBlocks
 } from '@wordpress/block-editor'
 import HeadingLevelDropdown from './heading-level-dropdown'
+import background from './img/fondopixeles.png'
 
-const edit = (props) => {
+const Edit = (props) => {
   const { attributes, setAttributes } = props || {}
   const { title, subtitle, comment, titleLevel } = attributes || {}
 
@@ -40,10 +42,11 @@ const edit = (props) => {
             onChange={comment => setAttributes({ comment })}
             placeholder='Comentario...'
           />
+          <InnerBlocks />
         </section>
         <img
           className='hero-banner__background'
-          src='https://martatorre.test/wp-content/uploads/2023/07/Fondo-de-pixeles.png'
+          src={background}
           alt='Imagen de fondo'
         />
       </header>
@@ -51,4 +54,4 @@ const edit = (props) => {
   )
 }
 
-export default edit
+export default Edit
