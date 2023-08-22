@@ -9,10 +9,20 @@
     "html": false
   },
   "attributes": {
-    "postType": {
-      "type": "string",
-      "default": "post"
+    "align": {
+      "type": "string"
     },
+    "category": {
+      "type": "number"
+    },
+    "order": {
+      "type": "string",
+			"default": "desc"
+		},
+		"orderBy": {
+      "type": "string",
+			"default": "date"
+		},
     "postsToShow": {
       "type": "number",
       "default": 3

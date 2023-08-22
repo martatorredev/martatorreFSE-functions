@@ -1,14 +1,22 @@
 <?php
 
 $args = array(
-  'post_type'        => $attributes['postType'],
-  'posts_per_page'   => $attributes['postsToShow'],
+  'post_type'        => 'post',
   'post_status'      => 'publish',
+  'posts_per_page'   => $attributes['postsToShow'],
+  'order'            => $attributes['order'],
+  'orderby'          => $attributes['orderBy'],
   'suppress_filters' => false,
 );
 
-if ( $attributes['postType'] === 'all' ) {
-  $args['post_type'] = array( 'post', 'charlitas', 'colaboraciones' );
+if ( array_key_exists( 'category', $attributes ) && $attributes['category'] != -1 ) {
+  $args['tax_query'] = array(
+    array(
+      'taxonomy' => 'category',
+      'field'    => 'term_id',
+      'terms'    => $attributes['category'],
+    )
+  );
 }
 
 $lastest_posts = new WP_Query( $args );
@@ -21,7 +29,6 @@ if ( $lastest_posts->have_posts() ) {
     $lastest_posts->the_post();
     ?>
     <article class="lastest-posts-grid-item">
-      <a class="lastest-posts-grid-item__link" href="<?php the_permalink(); ?>">Ir a la entrada</a>
 
       <div class="lastest-posts-grid-item__header">
         <div class="lastest-posts-grid-item__thumbnail">
@@ -29,55 +36,28 @@ if ( $lastest_posts->have_posts() ) {
             the_post_thumbnail();
           ?>
         </div>
-        <?php
-        $category_tax = nd_get_category_tax( get_post_type() );
-        $categories   = get_the_terms( get_the_ID(), $category_tax );
-
-        if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
-          echo '<ul class="lastest-posts-grid-item__categories">';
-
-          if ( get_field( 'main_category' ) ) {
-            ?>
-              <li class="lastest-posts-grid-item__category">
-                <?php echo esc_html( nd_get_main_category_name( get_the_ID() ) ); ?>
-              </li>
-            <?php
-
-          } else {
-            foreach ( $categories as $category ) {
-              ?>
-                <li class="lastest-posts-grid-item__category">
-                  <?php echo esc_html( $category->name ); ?>
-                </li>
-              <?php
-            }
-          }
-
-          echo '</ul>';
-        }
-        ?>
       </div>
 
       <div class="lastest-posts-grid-item__info">
-
         <?php
-        $comments_count = wp_count_comments( get_the_ID() )->approved;
+        $primary_category_id = get_post_meta( '$post_id', 'rank_math_primary_category', true );
+        $category = $primary_category_id
+          ? get_term_by('id', $primary_category_id, 'category')
+          : get_the_category()[0];
 
-        if ( comments_open() || $comments_count > 0 ) {
-          ?>
-          <a class="lastest-posts-grid-item__comments-count" href="<?php echo esc_url( get_the_permalink() . '#comentarios' ); ?>">
-            <img
-              class="lastest-posts-grid-item__comments-icon"
-              src="<?php echo esc_attr( ND_THEME_URL . '/assets/img/icon_comment.svg' ); ?>"
-              alt="Icono de comentario"
-            >
-            <?php
-              nd_comments_count_text( get_the_ID() );
-            ?>
-          </a>
-          <?php
-        }
+        echo '<ul class="lastest-posts-grid-item__categories">';
+
         ?>
+          <li class="lastest-posts-grid-item__category">
+            <?php echo esc_html( $category->name ); ?>
+          </li>
+        <?php
+
+        echo '</ul>';
+        ?>
+
+        <time class="lastest-posts-grid-item__date"><?php the_date( 'd \d\e F \d\e Y')?></time>
+
 
         <h3 class="lastest-posts-grid-item__title">
           <?php
@@ -85,12 +65,13 @@ if ( $lastest_posts->have_posts() ) {
           ?>
         </h3>
 
-        <div class="lastest-posts-grid-item__excerpt">
-          <?php
-            the_excerpt();
-          ?>
+        <div class="wp-block-buttons is-content-justification-center is-layout-flex">
+          <div class="wp-block-button is-style-fill">
+            <a class="wp-block-button__link has-white-color has-mt-dark-blue-background-color has-text-color has-background wp-element-button" href="<?php the_permalink(); ?>">
+              Leer más
+            </a>
+          </div>
         </div>
-
       </div>
     </article>
     <?php
