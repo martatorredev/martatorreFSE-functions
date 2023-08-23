@@ -1,8 +1,8 @@
 import { InnerBlocks, RichText, useBlockProps } from '@wordpress/block-editor'
 import Arrow from './Arrow'
 
-const save = ({ attributes }) => {
-  const { headerContent, spacing } = attributes
+const Save = ({ attributes }) => {
+  const { headerContent, level, spacing } = attributes
 
   const style = {}
 
@@ -15,12 +15,12 @@ const save = ({ attributes }) => {
     style
   })
 
+  const tagName = level ? `h${level}` : 'p'
+
   return (
     <div {...blockProps}>
       <div className='mtdev-accordion__header'>
-        <RichText.Content tagName='p' value={headerContent} />
-
-        <Arrow />
+        <RichText.Content tagName={tagName} value={headerContent} />
       </div>
       <div className='mtdev-accordion__content'>
         <InnerBlocks.Content />
@@ -29,4 +29,4 @@ const save = ({ attributes }) => {
   )
 }
 
-export default save
+export default Save

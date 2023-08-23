@@ -15,9 +15,15 @@
       "type": "string"
     },
     "headerContent": {
-			"type": "string",
-      "selector": ".mtdev-accordion .mtdev-accordion__header p"
+      "type": "string",
+			"source": "html",
+			"selector": ".mtdev-accordion h1, .mtdev-accordion h2, .mtdev-accordion h3, .mtdev-accordion h4, .mtdev-accordion h5, .mtdev-accordion h6, .mtdev-accordion p",
+			"default": ""
     },
+    "level": {
+			"type": "number",
+			"default": 3
+		},
     "spacing": {
       "type": "object"
     }

@@ -1,8 +1,8 @@
 import { registerBlockType } from '@wordpress/blocks'
-import edit from './editor'
-import save from './save'
+import Edit from './edit'
+import Save from './save'
 import metadata from './block.json'
 
 import './style.scss'
 
-registerBlockType(metadata.name, { edit, save })
+registerBlockType(metadata.name, { edit: Edit, save: Save })

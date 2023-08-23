@@ -2,15 +2,17 @@ import {
   InnerBlocks,
   RichText,
   useBlockProps,
+  BlockControls,
   InspectorControls
 } from '@wordpress/block-editor'
 import { __experimentalBoxControl as BoxControl, PanelBody } from '@wordpress/components'
 import { useState, useEffect } from '@wordpress/element'
 import { capitalize } from 'lodash'
 import Arrow from './Arrow'
+import HeadingLevelDropdown from './heading-level-dropdown'
 
-const edit = ({ attributes, setAttributes }) => {
-  const { headerContent, spacing } = attributes
+const Edit = ({ attributes, setAttributes }) => {
+  const { headerContent, level, spacing } = attributes
 
   const [style, setStyle] = useState({})
 
@@ -22,16 +24,23 @@ const edit = ({ attributes, setAttributes }) => {
     }
 
     setStyle(newStyle)
-    console.log(style)
   }, [spacing])
 
   const blockProps = useBlockProps({
-    className: 'mtdev-accordion is-showed',
+    className: 'mtdev-accordion is-open',
     style
   })
 
+  const tagName = level ? `h${level}` : 'p'
+
   return (
     <>
+      <BlockControls group='block'>
+        <HeadingLevelDropdown
+          value={level}
+          onChange={level => setAttributes({ level })}
+        />
+      </BlockControls>
       <InspectorControls>
         <PanelBody>
           <BoxControl
@@ -53,7 +62,7 @@ const edit = ({ attributes, setAttributes }) => {
             formattingControls={[]}
             onChange={headerContent => setAttributes({ headerContent })}
             placeholder='Escribe el titulo del acordeon aqui…'
-            tagName='p'
+            tagName={tagName}
             value={headerContent}
           />
 
@@ -67,4 +76,4 @@ const edit = ({ attributes, setAttributes }) => {
   )
 }
 
-export default edit
+export default Edit
