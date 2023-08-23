@@ -7,9 +7,8 @@ import {
 import HeadingLevelDropdown from './heading-level-dropdown'
 import background from './img/fondopixeles.png'
 
-const Edit = (props) => {
-  const { attributes, setAttributes } = props || {}
-  const { title, subtitle, comment, titleLevel } = attributes || {}
+const Edit = ({ attributes, setAttributes }) => {
+  const { title, subtitle, titleLevel } = attributes || {}
 
   return (
     <>
@@ -34,13 +33,6 @@ const Edit = (props) => {
             value={subtitle}
             onChange={subtitle => setAttributes({ subtitle })}
             placeholder='Subtitulo...'
-          />
-          <RichText
-            tagName='p'
-            className='hero-banner__comment'
-            value={comment}
-            onChange={comment => setAttributes({ comment })}
-            placeholder='Comentario...'
           />
           <InnerBlocks />
         </section>

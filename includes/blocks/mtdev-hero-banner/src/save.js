@@ -2,7 +2,7 @@ import { RichText, useBlockProps, useInnerBlocksProps } from '@wordpress/block-e
 import classnames from 'classnames'
 import background from './img/fondopixeles.png'
 
-const save = ({ attributes: { title, subtitle, comment, titleLevel } }) => {
+const save = ({ attributes: { title, comment, titleLevel } }) => {
   const TitleTag = 'h' + titleLevel
 
   return (
@@ -11,11 +11,6 @@ const save = ({ attributes: { title, subtitle, comment, titleLevel } }) => {
         {
           title && (
             <TitleTag className='hero-banner__title'><RichText.Content value={title} /></TitleTag>
-          )
-        }
-        {
-          subtitle && (
-            <p className='hero-banner__subtitle'><RichText.Content value={subtitle} /></p>
           )
         }
         {
