@@ -2487,10 +2487,31 @@
     react "^18.2.0"
     react-dom "^18.2.0"
 
+"@wordpress/element@^5.17.0":
+  version "5.17.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/element/-/element-5.17.0.tgz#31bd9323208edf57017fc5c919da6239a30fd252"
+  integrity sha512-sVjVWlKnpzTM4kfwfTgT9TtCcqqb3MqII9cLzM3DCVDFIUrudEUlbqX9lUCnnSfWCjoQ/YPaWg4LikKrRVmPQw==
+  dependencies:
+    "@babel/runtime" "^7.16.0"
+    "@types/react" "^18.0.21"
+    "@types/react-dom" "^18.0.6"
+    "@wordpress/escape-html" "^2.40.0"
+    change-case "^4.1.2"
+    is-plain-object "^5.0.0"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+
 "@wordpress/escape-html@^2.38.0":
   version "2.38.0"
   resolved "https://registry.yarnpkg.com/@wordpress/escape-html/-/escape-html-2.38.0.tgz#72dd11ba66e26498b4379a4d8b7d020ba26d879b"
   integrity sha512-q7wg1JvXVPpyddMnEl6A8ALn9U3mA4LvyQpkDNLonntU+Q8JbvW1r91HdzoFh396rHoNJWGzDGORUTlDlb5jOw==
+  dependencies:
+    "@babel/runtime" "^7.16.0"
+
+"@wordpress/escape-html@^2.40.0":
+  version "2.40.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/escape-html/-/escape-html-2.40.0.tgz#9f8eda70e6fd54de3b46d109b52bf7bda3ae77f5"
+  integrity sha512-hWbtydaYHud/qbXauCNR1h5pfmXJQwzdKfdQUMqEjms2sqm2nQQXGxi/t8CLc2HjrNenzHqOZaonfQ/nx+1l1A==
   dependencies:
     "@babel/runtime" "^7.16.0"
 
@@ -2515,6 +2536,15 @@
     eslint-plugin-react-hooks "^4.3.0"
     globals "^13.12.0"
     requireindex "^1.2.0"
+
+"@wordpress/icons@^9.31.0":
+  version "9.31.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/icons/-/icons-9.31.0.tgz#d95a594b6c994cc8c3ddb9fe539903b135dde632"
+  integrity sha512-o8Yj3+BtsrwytN1tSRyINsAAXACdlgS+ELl6HnB3iE3K+qi2KzJGFVZPXS7vDZRPDxt6foNVk1LDp60hbEKvYQ==
+  dependencies:
+    "@babel/runtime" "^7.16.0"
+    "@wordpress/element" "^5.17.0"
+    "@wordpress/primitives" "^3.38.0"
 
 "@wordpress/jest-console@^7.9.0":
   version "7.9.0"
@@ -2549,6 +2579,15 @@
   version "2.21.0"
   resolved "https://registry.yarnpkg.com/@wordpress/prettier-config/-/prettier-config-2.21.0.tgz#f6e4decf915295d1f30b695e9c40ba52fa724008"
   integrity sha512-Oasi7PiZSp5LtTmMkISgn6UIb0pSv9uQsW5jlnrzhBZvF/J15jQ9V6xPcir0j2GllINVUNS2LCtsxwkJriV5lg==
+
+"@wordpress/primitives@^3.38.0":
+  version "3.38.0"
+  resolved "https://registry.yarnpkg.com/@wordpress/primitives/-/primitives-3.38.0.tgz#1dc93e22e9811f9d2ee595bdf543c31cb432c2cb"
+  integrity sha512-quRkAzZknTCqrBI/HvJ2Eas0x1irU6m2GbV/8opyZoE/2BAN+W07JgDhE8Aukd+3q03nfpKPeRJAO1dZ4/Vnuw==
+  dependencies:
+    "@babel/runtime" "^7.16.0"
+    "@wordpress/element" "^5.17.0"
+    classnames "^2.3.1"
 
 "@wordpress/scripts@^26.9.0":
   version "26.9.0"
@@ -3425,6 +3464,11 @@ cjs-module-lexer@^1.0.0:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-1.2.3.tgz#6c370ab19f8a3394e318fe682686ec0ac684d107"
   integrity sha512-0TNiGstbQmCFwt4akjjBg5pLRTSyj/PkWQ1ZoO2zntmg9yLqSRxwEa4iCfQLGjqhiqBfOJa7W/E8wfGrTDmlZQ==
+
+classnames@^2.3.1:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
+  integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
 
 clean-webpack-plugin@^3.0.0:
   version "3.0.0"
