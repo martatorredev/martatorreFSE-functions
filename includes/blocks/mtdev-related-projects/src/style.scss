@@ -1,0 +1,110 @@
+.mtdev-related-projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.mtdev-related-projects-item__thumbnail img {
+  width: 100%;
+  height: auto;
+}
+
+.mtdev-related-projects-item {
+  background-color: var(--wp--preset--color--white);
+  color: var(--wp--preset--color--mt-dark-blue);
+  position: relative;
+
+  a {
+    color: var(--wp--preset--color--mt-dark-blue);
+    font-family: var(--wp--preset--font-family--space-grotesk);
+    font-weight: 700;
+    text-decoration: underline;
+    transition: 0.3s ease color;
+
+    &:hover {
+      color: var(--wp--preset--color--mt-green);
+    }
+  }
+}
+
+.mtdev-related-projects-item__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 2rem 1.5rem;
+  text-align: center;
+  background-color: var(--wp--preset--color--light-gray-200);
+}
+
+.mtdev-related-projects-item__info > * {
+  margin: 0;
+}
+
+.mtdev-related-projects-item__categories {
+  list-style: none;
+  padding: 0;
+}
+
+.mtdev-related-projects-item__category {
+  font-size: 1rem;
+  line-height: normal;
+  letter-spacing: 0.01563rem;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  background:  var(--wp--preset--color--mt-green);
+}
+
+.mtdev-related-projects-item__title:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.mtdev-related-projects-item__link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: var(--wp--preset--color--mt-dark-blue);
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  a {
+    color: var(--wp--preset--color--white);
+  }
+}
+
+.mtdev-related-projects-item__link:focus-visible {
+  z-index: 100;
+  opacity: 1;
+}
+
+.editor-styles-wrapper  {
+  .mtdev-projects {
+    pointer-events: none;
+
+    .mtdev-related-projects-item__title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .mtdev-related-projects-item a {
+      color: inherit;
+    }
+  }
+}
