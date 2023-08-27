@@ -22,14 +22,14 @@
 			"type": "string",
 			"selector": ".hero-banner__subtitle"
 		},
-    "comment": {
-			"type": "string",
-			"selector": ".hero-banner__comment"
-		},
     "titleLevel": {
 			"type": "number",
 			"default": 2
-		}
+		},
+    "showOnlyInnerBlocks" : {
+      "type": "boolean",
+      "default": false
+    }
 	},
 	"editorScript": "file:./build/index.js",
 	"editorStyle": "file:./build/style-index.css",

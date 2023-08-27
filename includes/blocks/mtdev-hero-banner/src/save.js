@@ -1,21 +1,15 @@
 import { RichText, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor'
-import classnames from 'classnames'
 import background from './img/fondopixeles.png'
 
 const save = ({ attributes: { title, comment, titleLevel } }) => {
   const TitleTag = 'h' + titleLevel
 
   return (
-    <header {...useBlockProps.save({ className: classnames('hero-banner', !comment && 'without-comment') })}>
+    <header {...useBlockProps.save({ className: 'hero-banner' })}>
       <section className='hero-banner__content'>
         {
           title && (
             <TitleTag className='hero-banner__title'><RichText.Content value={title} /></TitleTag>
-          )
-        }
-        {
-          comment && (
-            <p className='hero-banner__comment'><RichText.Content value={comment} /></p>
           )
         }
 

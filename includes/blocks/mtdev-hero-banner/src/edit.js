@@ -4,18 +4,25 @@ import {
   BlockControls,
   InnerBlocks
 } from '@wordpress/block-editor'
+import { ToggleControl } from '@wordpress/components'
 import HeadingLevelDropdown from './heading-level-dropdown'
 import background from './img/fondopixeles.png'
 
 const Edit = ({ attributes, setAttributes }) => {
-  const { title, subtitle, titleLevel } = attributes || {}
+  const { title, subtitle, titleLevel, showOnlyInnerBlocks } = attributes || {}
 
   return (
     <>
       <BlockControls group='block'>
         <HeadingLevelDropdown
           value={titleLevel}
-          onChange={(newLevel) => setAttributes({ titleLevel: newLevel })}
+          onChange={titleLevel => setAttributes({ titleLevel })}
+        />
+        {/* Show only inner blocks toggle */}
+        <ToggleControl
+          label='Mostrar solo bloques internos'
+          checked={showOnlyInnerBlocks}
+          onChange={showOnlyInnerBlocks => setAttributes({ showOnlyInnerBlocks })}
         />
       </BlockControls>
       <header {...useBlockProps({ className: 'hero-banner' })}>
