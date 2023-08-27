@@ -118,7 +118,7 @@ function mtdev_case_studies_custom_post_type() {
 		'taxonomies'          => array(
 			'case_studies_categories',
 		),
-		'hierarchical'        => true,
+		'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
 		'menu_icon'           => 'dashicons-portfolio',
@@ -127,13 +127,12 @@ function mtdev_case_studies_custom_post_type() {
 		'show_in_admin_bar'   => true,
 		'menu_position'       => 2,
 		'can_export'          => true,
-		'has_archive'         => false,
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
 		'query_var'           => true,
 		'capability_type'     => 'post',
 		'show_in_rest'        => true,
-
+		'has_archive'         => 'mis-proyectos-web',
 	);
 
 	// Registration of the custom post type
