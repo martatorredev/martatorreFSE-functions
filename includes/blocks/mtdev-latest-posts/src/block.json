@@ -1,6 +1,6 @@
 {
 	"apiVersion": 3,
-	"name": "mtdev/lastest-posts",
+	"name": "mtdev/latest-posts",
 	"title": "Últimos posts",
 	"category": "widgets",
 	"icon": "align-wide",
@@ -13,7 +13,8 @@
       "type": "string"
     },
     "category": {
-      "type": "number"
+      "type": "number",
+      "default": -1
     },
     "order": {
       "type": "string",
@@ -26,9 +27,22 @@
     "postsToShow": {
       "type": "number",
       "default": 3
+    },
+    "hasPagination": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasFilters": {
+      "type": "boolean",
+      "default": false
+    },
+    "inheritQuery": {
+      "type": "boolean",
+      "default": false
     }
   },
 	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
 	"editorStyle": "file:./style-index.css",
 	"style": "file:./style-index.css",
 	"render": "file:./render.php"
