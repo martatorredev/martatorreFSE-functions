@@ -1,7 +1,7 @@
 {
-	"name":"mtdev-latest-projects",
+	"name":"mtdev-projects",
 	"version":"1.0.0",
-	"description":"Bloque de ultimos proyectos",
+	"description":"Bloque de proyectos",
 	"author":"EliezerSPP",
 	"main":"build/index.js",
 	"scripts":{
