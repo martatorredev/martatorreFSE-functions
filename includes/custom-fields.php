@@ -1,6 +1,6 @@
 <?php
 
-function mtdev_cta_field() {
+function mtdev_testimonial_fields() {
   acf_add_local_field_group(array(
     'key' => 'group_testimonial',
     'title' => 'Opciones de testimonios',
@@ -50,5 +50,92 @@ function mtdev_cta_field() {
   ));
 }
 
-add_action( 'acf/init', 'mtdev_cta_field' );
+add_action( 'acf/init', 'mtdev_testimonial_fields' );
+
+function mtdev_project_fields() {
+  acf_add_local_field_group(array(
+    'key' => 'group_project',
+    'title' => 'Opciones de proyectos',
+    'fields' => array(
+      array(
+        'key' => 'field_project_client',
+        'label' => 'Cliente',
+        'name' => 'cliente',
+        'type' => 'text',
+      ),
+      array(
+        'key' => 'field_project_type',
+        'label' => 'Tipo de proyecto',
+        'name' => 'tipo_de_proyecto',
+        'type' => 'textarea',
+      ),
+      array(
+        'key' => 'field_project_collaborators',
+        'label' => 'Profesionales',
+        'name' => 'profesionales',
+        'type' => 'repeater',
+        'layout' => 'table',
+        'button_label' => 'Agregar Fila',
+        'rows_per_page' => 20,
+        'sub_fields' => array(
+          array(
+            'key' => 'field_collaborator_name',
+            'label' => 'Nombre',
+            'name' => 'nombre',
+            'type' => 'text',
+            'required' => true,
+            'parent_repeater' => 'field_project_collaborators',
+          ),
+          array(
+            'key' => 'field_collaborator_url',
+            'label' => 'Url',
+            'name' => 'url',
+            'type' => 'url',
+            'conditional_logic' => array(
+              array(
+                array(
+                  'field' => 'field_collaborator_name',
+                  'operator' => '!=empty',
+                ),
+              ),
+            ),
+            'parent_repeater' => 'field_project_collaborators',
+          ),
+        ),
+      ),
+      array(
+        'key' => '=field_project_services',
+        'label' => 'Servicios',
+        'name' => 'servicios',
+        'type' => 'post_object',
+        'post_type' => array(
+          0 => 'page',
+        ),
+        'post_status' => array(
+          0 => 'publish',
+        ),
+        'return_format' => 'object',
+        'multiple' => true,
+        'ui' => true,
+      ),
+    ),
+    'location' => array(
+      array(
+        array(
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'mis-proyectos-web',
+        ),
+      ),
+    ),
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'active' => true,
+    'show_in_rest' => 0,
+  ));
+}
+
+add_action( 'acf/init', 'mtdev_project_fields' );
 
