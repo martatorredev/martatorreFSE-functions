@@ -38,13 +38,13 @@ if ( $category > 0 ) {
       'terms'    => $category,
     )
   );
-  $args['meta_query'] = array(
-    array(
-      'key'     => 'rank_math_primary_mis_proyectos_web_category',
-      'value'   => $category,
-      'compare' => 'LIKE'
-    )
-  );
+  // $args['meta_query'] = array(
+  //   array(
+  //     'key'     => 'rank_math_primary_mis_proyectos_web_category',
+  //     'value'   => $category,
+  //     'compare' => 'LIKE'
+  //   )
+  // );
 }
 
 $order = mtdev_get_var( 's-order', false );
