@@ -40,7 +40,13 @@ if ( $post_term ) {
   ?>
   <ul class="mtdev-post-terms">
     <li class="mtdev-post-term">
-      <a href="<?php echo esc_url( get_category_link( $post_term->term_id ) ) ?>"><?php echo esc_html( $post_term->name ); ?></a>
+      <?php
+        if ($attributes['withLink']) {
+          echo '<a href="' . esc_url( get_category_link( $post_term->term_id ) )  . '">' . esc_html( $post_term->name ) . '</a>';
+        } else {
+          echo $post_term->name;
+        }
+      ?>
     </li>
   </ul>
   <?php
