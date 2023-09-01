@@ -79,8 +79,10 @@ $frontend_attrributes = array(
 
 if ( ! empty( $query->query_vars['tax_query'] ) ) {
   $frontend_attrributes['s-category'] = $query->query_vars['tax_query'][0]['terms'];
-} else if ( is_category()) {
+} else if ( is_category() ) {
   $frontend_attrributes['s-category'] = get_query_var( 'cat' );
+} else if ( is_tax() ) {
+  $frontend_attrributes['s-category'] = get_queried_object_id();
 }
 
 $latest_posts = $query;
@@ -93,12 +95,12 @@ if ( ! $is_from_request && $attributes['hasFilters'] ) {
     $show_category_filter = intval( $attributes['category'] ) === -1;
   }
 
-  if ( is_category() ) {
+  if ( is_category() || is_tax()  ) {
     $show_category_filter = false;
   }
 
   $action = get_permalink( get_the_ID() );
-  if ( is_category() ) $action = '#';
+  if ( is_category() || is_tax() ) $action = '#';
 
   ?>
   <div class="mtdev-projects-filters">
@@ -200,7 +202,7 @@ if ( $latest_posts->have_posts() ) {
           <?php the_title(); ?>
         </h3>
 
-        <a href="<?php the_permalink(); ?>">
+        <a class="mtdev-projects-item__button" href="<?php the_permalink(); ?>">
           Ver proyecto
         </a>
       </div>
