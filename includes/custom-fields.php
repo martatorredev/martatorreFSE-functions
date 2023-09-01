@@ -104,19 +104,38 @@ function mtdev_project_fields() {
         ),
       ),
       array(
-        'key' => '=field_project_services',
+        'key' => 'field_project_services',
         'label' => 'Servicios',
         'name' => 'servicios',
-        'type' => 'post_object',
-        'post_type' => array(
-          0 => 'page',
+        'type' => 'repeater',
+        'layout' => 'table',
+        'button_label' => 'Agregar Fila',
+        'rows_per_page' => 20,
+        'sub_fields' => array(
+          array(
+            'key' => 'field_service_name',
+            'label' => 'Nombre',
+            'name' => 'nombre',
+            'type' => 'text',
+            'required' => true,
+            'parent_repeater' => 'field_project_services',
+          ),
+          array(
+            'key' => 'field_service_url',
+            'label' => 'Url',
+            'name' => 'url',
+            'type' => 'url',
+            'conditional_logic' => array(
+              array(
+                array(
+                  'field' => 'field_service_name',
+                  'operator' => '!=empty',
+                ),
+              ),
+            ),
+            'parent_repeater' => 'field_project_services',
+          ),
         ),
-        'post_status' => array(
-          0 => 'publish',
-        ),
-        'return_format' => 'object',
-        'multiple' => true,
-        'ui' => true,
       ),
     ),
     'location' => array(
@@ -128,8 +147,8 @@ function mtdev_project_fields() {
         ),
       ),
     ),
-    'position' => 'normal',
-    'style' => 'default',
+    'position' => 'side',
+    'style' => 'seamless',
     'label_placement' => 'top',
     'instruction_placement' => 'label',
     'active' => true,
