@@ -1,0 +1,25 @@
+.mtdev-post-terms {
+  list-style: none;
+  padding: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: fit-content;
+
+  .mtdev-post-term {
+    font-size: 1rem;
+    line-height: normal;
+    letter-spacing: 0.01563rem;
+    text-transform: uppercase;
+    padding: 0.3rem 0.6rem;
+    background:  var(--wp--preset--color--mt-green);
+
+    a, a:hover {
+      color: var(--wp--preset--color--mt-dark-blue);
+      text-decoration: none;
+    }
+  }
+}
+
+.editor-styles-wrapper .mtdev-post-terms {
+  pointer-events: none;
+}
