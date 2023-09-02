@@ -17,10 +17,10 @@ $post_term = null;
 
 // Set $term var
 if ( ! $primary_term_id ) {
-  $terms = get_the_terms( $post_id, $term );
+  $post_terms = get_the_terms( $post_id, $term );
 
-  if ( is_array ( $terms ) && ! empty( $terms ) ) {
-    $post_term = $terms[0];
+  if ( is_array ( $post_terms ) && ! empty( $post_terms ) ) {
+    $post_term = $post_terms[0];
   }
 } else {
   $post_term = get_term_by( 'id', $primary_term_id, $term );
@@ -30,7 +30,7 @@ $is_editor = !$post_id;
 
 if ( $is_editor ) {
   // Simulate a default term
-  $term = (object) array(
+  $post_term = (object) array(
     'term_id' => 1,
     'name'    => 'Categoria principal',
   );
