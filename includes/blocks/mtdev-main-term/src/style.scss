@@ -12,9 +12,10 @@
     text-transform: uppercase;
     padding: 0.3rem 0.6rem;
     background:  var(--wp--preset--color--mt-green);
+    color: var(--wp--preset--color--mt-dark-blue);
 
     a, a:hover {
-      color: var(--wp--preset--color--mt-dark-blue);
+      color: inherit;
       text-decoration: none;
     }
   }
