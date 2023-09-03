@@ -14,7 +14,7 @@ $average_reading_rate = 189;
 
 $word_count_type = wp_get_word_count_type();
 
-$minutes_to_read = max( 1, (int) round( wp_word_count( $content, $word_count_type ) / $average_reading_rate ) );
+$minutes_to_read = max( 1, (int) round( mtdev_word_count( $content, $word_count_type ) / $average_reading_rate ) );
 
 $minutes_to_read_string = sprintf(
   /* translators: %s is the number of minutes the post will take to read. */
