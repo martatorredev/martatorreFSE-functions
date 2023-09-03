@@ -6,10 +6,6 @@
 	"category": "widgets",
 	"textdomain": "default",
 	"attributes": {
-		"displayAsDropdown": {
-			"type": "boolean",
-			"default": false
-		},
 		"showHierarchy": {
 			"type": "boolean",
 			"default": false
@@ -32,24 +28,11 @@
 		"html": false,
 		"spacing": {
 			"margin": true,
-			"padding": true,
-			"__experimentalDefaultControls": {
-				"margin": false,
-				"padding": false
-			}
+			"padding": true
 		},
 		"typography": {
 			"fontSize": true,
-			"lineHeight": true,
-			"__experimentalFontFamily": true,
-			"__experimentalFontWeight": true,
-			"__experimentalFontStyle": true,
-			"__experimentalTextTransform": true,
-			"__experimentalTextDecoration": true,
-			"__experimentalLetterSpacing": true,
-			"__experimentalDefaultControls": {
-				"fontSize": true
-			}
+			"lineHeight": true
 		}
 	},
 	"editorScript": "file:./index.js",
