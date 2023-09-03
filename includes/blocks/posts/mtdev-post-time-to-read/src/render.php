@@ -22,6 +22,12 @@ $minutes_to_read_string = sprintf(
   $minutes_to_read
 );
 
+$minutes_to_read_string = sprintf(
+  '%s %s',
+  $minutes_to_read_string,
+  'de lectura'
+);
+
 $align_class_name = empty( $attributes['textAlign'] ) ? '' : "has-text-align-{$attributes['textAlign']}";
 
 $wrapper_attributes = get_block_wrapper_attributes( array( 'class' => $align_class_name ) );
