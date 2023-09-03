@@ -53,6 +53,8 @@
   text-transform: uppercase;
   padding: 0.3rem 0.6rem;
   background:  var(--wp--preset--color--mt-green);
+  position: relative;
+  z-index: 1;
 
   a, a:hover {
     color: inherit;
