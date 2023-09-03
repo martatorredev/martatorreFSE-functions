@@ -162,7 +162,7 @@ if ( $latest_posts->have_posts() ) {
     $latest_posts->the_post();
     ?>
     <article class="mtdev-projects-item">
-      <a class="mtdev-projects-item__link" href="<?php the_permalink(); ?>">Ir al proyecto</a>
+      <a class="mtdev-projects-item__link" href="<?php the_permalink(); ?>">Ver proyecto</a>
 
       <div class="mtdev-projects-item__header">
         <div class="mtdev-projects-item__thumbnail">
@@ -190,7 +190,9 @@ if ( $latest_posts->have_posts() ) {
           ?>
           <ul class="mtdev-projects-item__categories">
             <li class="mtdev-projects-item__category">
-              <?php echo esc_html( $post_category->name ); ?>
+              <a href="<?php
+                echo esc_url( get_category_link( $post_category->term_id ) );
+              ?>"><?php echo esc_html( $post_category->name ); ?></a>
             </li>
           </ul>
           <?php

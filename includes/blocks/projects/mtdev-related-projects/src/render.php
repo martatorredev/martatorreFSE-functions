@@ -33,7 +33,7 @@ if ( $related->have_posts() ) {
     $related->the_post();
     ?>
     <article class="mtdev-related-projects-item">
-      <a class="mtdev-related-projects-item__link" href="<?php the_permalink(); ?>">Ir al proyecto</a>
+      <a class="mtdev-related-projects-item__link" href="<?php the_permalink(); ?>">Ver proyecto</a>
 
       <div class="mtdev-related-projects-item__header">
         <div class="mtdev-related-projects-item__thumbnail">
@@ -60,8 +60,10 @@ if ( $related->have_posts() ) {
         if ( $post_category ) {
           ?>
           <ul class="mtdev-related-projects-item__categories">
-            <li class="mtdev-related-projects-item__category">
-              <?php echo esc_html( $post_category->name ); ?>
+            <li class="mtdev-projects-item__category">
+              <a href="<?php
+                echo esc_url( get_category_link( $post_category->term_id ) );
+              ?>"><?php echo esc_html( $post_category->name ); ?></a>
             </li>
           </ul>
           <?php
