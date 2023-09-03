@@ -26,7 +26,7 @@ $align_class_name = empty( $attributes['textAlign'] ) ? '' : "has-text-align-{$a
 
 $wrapper_attributes = get_block_wrapper_attributes( array( 'class' => $align_class_name ) );
 
-return sprintf(
+printf(
   '<div %1$s>%2$s</div>',
   $wrapper_attributes,
   $minutes_to_read_string
