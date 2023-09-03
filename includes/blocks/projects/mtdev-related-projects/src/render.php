@@ -60,7 +60,7 @@ if ( $related->have_posts() ) {
         if ( $post_category ) {
           ?>
           <ul class="mtdev-related-projects-item__categories">
-            <li class="mtdev-projects-item__category">
+            <li class="mtdev-related-projects-item__category">
               <a href="<?php
                 echo esc_url( get_category_link( $post_category->term_id ) );
               ?>"><?php echo esc_html( $post_category->name ); ?></a>
