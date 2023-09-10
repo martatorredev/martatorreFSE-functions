@@ -88,7 +88,7 @@ function mtdev_project_fields() {
           ),
           array(
             'key' => 'field_collaborator_url',
-            'label' => 'Url',
+            'label' => 'URL',
             'name' => 'url',
             'type' => 'url',
             'conditional_logic' => array(
@@ -122,7 +122,7 @@ function mtdev_project_fields() {
           ),
           array(
             'key' => 'field_service_url',
-            'label' => 'Url',
+            'label' => 'URL',
             'name' => 'url',
             'type' => 'url',
             'conditional_logic' => array(
@@ -147,7 +147,6 @@ function mtdev_project_fields() {
         ),
       ),
     ),
-    'position' => 'side',
     'style' => 'seamless',
     'label_placement' => 'top',
     'instruction_placement' => 'label',
