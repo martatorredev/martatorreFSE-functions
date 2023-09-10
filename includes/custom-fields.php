@@ -71,7 +71,7 @@ function mtdev_project_fields() {
       ),
       array(
         'key' => 'field_project_collaborators',
-        'label' => 'Profesionales',
+        'label' => 'Equipo',
         'name' => 'profesionales',
         'type' => 'repeater',
         'layout' => 'table',
@@ -106,7 +106,7 @@ function mtdev_project_fields() {
       array(
         'key' => 'field_project_services',
         'label' => 'Servicios',
-        'name' => 'servicios',
+        'name' => 'services',
         'type' => 'repeater',
         'layout' => 'table',
         'button_label' => 'Agregar Fila',
@@ -156,4 +156,3 @@ function mtdev_project_fields() {
 }
 
 add_action( 'acf/init', 'mtdev_project_fields' );
-

@@ -31,7 +31,7 @@ $wrapper_attributes = get_block_wrapper_attributes();
 	mtdev_display_repeater_field( 'Profesionales', 'profesionales', 'project-info__list' );
 
 	// Display services.
-	mtdev_display_repeater_field( 'Servicios', 'servicios', 'project-info__list' );
+	mtdev_display_repeater_field( 'Servicios', 'services', 'project-info__list' );
 	?>
 	</div>
 </section>
