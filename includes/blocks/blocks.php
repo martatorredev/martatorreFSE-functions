@@ -8,3 +8,4 @@ require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/posts/mtdev-post-time-
 require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/projects/mtdev-latest-projects/mtdev-latest-projects.php';
 require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/projects/mtdev-related-projects/mtdev-related-projects.php';
 require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/projects/mtdev-project-categories/mtdev-project-categories.php';
+require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/projects/mtdev-project-info/mtdev-project-info.php';
