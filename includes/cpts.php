@@ -43,7 +43,6 @@ function mtdev_testimonials_custom_post_type() {
 		'query_var'           => true,
 		'capability_type'     => 'page',
 		'show_in_rest'        => true,
-
 	);
 
 	// Registration of the custom post type
@@ -70,7 +69,9 @@ function mtdev_testimonials_custom_taxonomy() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
-	);
+		'show_in_rest'      => true,
+  );
+
 	register_taxonomy(
 		'testimonials_categories',
 		array(
