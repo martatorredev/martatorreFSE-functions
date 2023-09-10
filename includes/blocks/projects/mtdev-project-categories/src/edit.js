@@ -11,8 +11,6 @@ import { __ } from '@wordpress/i18n'
 import { pin } from '@wordpress/icons'
 import { useEntityRecords } from '@wordpress/core-data'
 
-import './editor.scss'
-
 export default function CategoriesEdit ({
   attributes: {
     showHierarchy,

@@ -19,7 +19,7 @@ $type           = 'list';
 
 $wrapper_attributes = get_block_wrapper_attributes( array( 'class' => "mtdev-block-categories-{$type}" ) );
 
-return sprintf(
+printf(
   $wrapper_markup,
   $wrapper_attributes,
   $items_markup

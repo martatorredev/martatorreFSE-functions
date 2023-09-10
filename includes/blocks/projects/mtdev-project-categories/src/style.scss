@@ -1,13 +1,27 @@
-.mtdev-block-categories {
-	// This block has customizable padding, border-box makes that more predictable.
-	box-sizing: border-box;
+.mtdev-block-categories-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
 
-	&.alignleft {
-		/*rtl:ignore*/
-		margin-right: 2em;
-	}
-	&.alignright {
-		/*rtl:ignore*/
-		margin-left: 2em;
-	}
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  a:not([class]) {
+    color: #0077CB;
+    text-decoration: underline;
+    background-image: linear-gradient(to bottom, #0077CB 0%, #0077CB 100%);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 0% 1.3em;
+    transition: background-size 0.4s 0.2s, color 0.4s 0.2s;
+
+    &:hover,
+    &:focus {
+      background-size: 100% 1.3em;
+      transition-delay: 0s;
+      color: white;
+    }
+  }
 }
