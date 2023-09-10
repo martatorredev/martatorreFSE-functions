@@ -183,7 +183,7 @@ if ( $query->have_posts() ) {
 
         if ( is_array ( $post_category ) && ! empty( $post_category ) ) $post_category = $post_category[0];
 
-        if ( $category ) {
+        if ( $post_category ) {
           ?>
           <ul class="latest-posts-grid-item__categories">
             <li class="latest-posts-grid-item__category">
