@@ -1,0 +1,24 @@
+{
+  "name": "mtdev-timeline-block",
+  "version": "1.0.0",
+  "description": "Bloque de timeline",
+  "author": "EliezerSPP",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "packages-update": "wp-scripts packages-update",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "start": "wp-scripts start"
+  },
+  "devDependencies": {
+    "@wordpress/block-editor": "^12.9.0",
+    "@wordpress/scripts": "^26.9.0"
+  },
+  "dependencies": {
+    "@formkit/auto-animate": "^0.8.0",
+    "nanoid": "^5.0.1"
+  }
+}
