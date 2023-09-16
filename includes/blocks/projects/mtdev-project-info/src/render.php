@@ -28,7 +28,7 @@ $wrapper_attributes = get_block_wrapper_attributes();
 	}
 
 	// Display collaborators.
-	mtdev_display_repeater_field( 'Profesionales', 'profesionales', 'project-info__list' );
+	mtdev_display_repeater_field( 'Equipo', 'profesionales', 'project-info__list' );
 
 	// Display services.
 	mtdev_display_repeater_field( 'Servicios', 'services', 'project-info__list' );
@@ -68,7 +68,7 @@ function mtdev_display_repeater_field( $title, $field_name, $classname ) {
 			$item = '<li>%s</li>';
 
 			if ( $url ) {
-				$item = sprintf( $item, '<a href="' . esc_url( $url ) . '">%s</a>' );
+				$item = sprintf( $item, '<a href="' . esc_url( $url ) . '" target="_blank">%s</a>' );
 			}
 			printf( $item, esc_html( $name ) );
 		}
