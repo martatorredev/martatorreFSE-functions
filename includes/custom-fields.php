@@ -151,8 +151,52 @@ function mtdev_project_fields() {
     'label_placement' => 'top',
     'instruction_placement' => 'label',
     'active' => true,
-    'show_in_rest' => 0,
+    'show_in_rest' => false,
   ));
 }
 
 add_action( 'acf/init', 'mtdev_project_fields' );
+
+function mtdev_colaborations_fields() {
+	acf_add_local_field_group(array(
+    'key' => 'group_colaborations',
+    'title' => 'Opciones',
+    'fields' => array(
+      array(
+        'key' => 'field_colaboration_url',
+        'label' => 'URL',
+        'name' => 'url',
+        'type' => 'url',
+        'required' => false,
+      ),
+      array(
+        'key' => 'field_colaboration_logo',
+        'label' => 'Logo',
+        'name' => 'logo',
+        'type' => 'image',
+        'required' => true,
+        'return_format' => 'url',
+        'library' => 'all',
+        'preview_size' => 'medium',
+      ),
+    ),
+    'location' => array(
+      array(
+        array(
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'colaboraciones',
+        ),
+      ),
+    ),
+    'menu_order' => -INF,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'active' => true,
+    'show_in_rest' => false,
+  ));
+}
+
+add_action( 'acf/init', 'mtdev_colaborations_fields' );
