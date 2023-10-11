@@ -1,0 +1,39 @@
+.colaborations__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 2rem;
+}
+
+.colaboration__logo {
+  width: 100%;
+}
+
+.colaboration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 0.6rem;
+  padding: 2.5rem 3.5rem;
+  position: relative;
+}
+
+.colaboration__name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 0;
+  border-radius: 0.625rem;
+  background: linear-gradient(135deg, #11EEA9 29.17%, #0395FC 70.31%, #0054FF 100%);
+  color: white;
+  text-decoration: underline;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.colaboration__name:hover {
+  opacity: 1;
+  color: white;
+}
