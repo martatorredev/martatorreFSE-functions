@@ -178,7 +178,7 @@ add_action( 'init', 'mtdev_case_studies_custom_post_type', 0 );
 add_action( 'init', 'mtdev_case_studies_custom_taxonomy', 0 );
 
 // Add Colaboradoras custom post type
-function colaboradoras_custom_post_type() {
+function mtdev_colaboradoras_custom_post_type() {
 	$labels = array(
 		'name'               => 'Colaboradoras',
 		'singular_name'      => 'Colaboradora',
@@ -205,8 +205,7 @@ function colaboradoras_custom_post_type() {
 		'taxonomies'          => array(
 			'colaboradoras_category',
 		),
-		'hierarchical'        => false,
-		'public'              => true,
+		'public'              => false,
 		'show_ui'             => true,
 		'menu_icon'           => 'dashicons-format-quote',
 		'show_in_menu'        => true,
@@ -215,19 +214,18 @@ function colaboradoras_custom_post_type() {
 		'menu_position'       => 5,
 		'can_export'          => true,
 		'has_archive'         => false,
-		'exclude_from_search' => false,
+		'exclude_from_search' => true,
 		'publicly_queryable'  => true,
 		'query_var'           => true,
-		'capability_type'     => 'post',
+		'capability_type'     => 'page',
 		'show_in_rest'        => true,
-
 	);
 
 	// Registration of the custom post type
 	register_post_type( 'colaboradoras', $args );
 }
 
-function colaboradoras_custom_taxonomy() {
+function mtdev_colaboradoras_custom_taxonomy() {
 	$labels = array(
 		'name'              => 'Categorías',
 		'singular_name'     => 'Categoría',
@@ -261,10 +259,10 @@ function colaboradoras_custom_taxonomy() {
 	);
 }
 
-add_action( 'init', 'colaboradoras_custom_post_type', 0 );
-add_action( 'init', 'colaboradoras_custom_taxonomy', 0 );
+add_action( 'init', 'mtdev_colaboradoras_custom_post_type', 0 );
+add_action( 'init', 'mtdev_colaboradoras_custom_taxonomy', 0 );
 
-function custom_menu_order( $menu_ord ) {
+function mtdev_custom_menu_order( $menu_ord ) {
 	if ( ! $menu_ord ) {
 		return true;
 	}
@@ -276,5 +274,5 @@ function custom_menu_order( $menu_ord ) {
 		'edit.php?post_type=colaboradoras',
 	);
 }
-add_filter( 'custom_menu_order', 'custom_menu_order' );
-add_filter( 'menu_order', 'custom_menu_order' );
+add_filter( 'custom_menu_order', 'mtdev_custom_menu_order' );
+add_filter( 'menu_order', 'mtdev_custom_menu_order' );
