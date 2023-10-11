@@ -185,7 +185,7 @@ function mtdev_colaborations_fields() {
         array(
           'param' => 'post_type',
           'operator' => '==',
-          'value' => 'colaboraciones',
+          'value' => 'colaboradoras',
         ),
       ),
     ),
