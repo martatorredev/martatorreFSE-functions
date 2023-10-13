@@ -1,18 +1,31 @@
-.mtdev-related-posts {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-}
+@import '../../../shared/responsive.scss';
 
-.mtdev-related-posts-item__thumbnail img {
-  width: 100%;
-  height: auto;
+.mtdev-related-posts {
+  --gap: 1rem;
+  display: flex;
+  gap: var(--gap);
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .mtdev-related-posts-item {
   background-color: var(--wp--preset--color--light-gray-100);
   color: var(--wp--preset--color--mt-dark-blue);
   position: relative;
+  width: 100%;
+
+  @include mq('medium') {
+    width: calc(50% - var(--gap));
+  }
+
+  @include mq('large') {
+    width: calc(33.33% - var(--gap));
+  }
+}
+
+.mtdev-related-posts-item__thumbnail img {
+  width: 100%;
+  height: auto;
 }
 
 .mtdev-related-posts-item__info {

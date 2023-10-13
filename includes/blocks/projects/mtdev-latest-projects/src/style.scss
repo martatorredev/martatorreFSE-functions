@@ -1,18 +1,26 @@
-.mtdev-projects {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
+@import '../../../shared/responsive.scss';
 
-.mtdev-projects-item__thumbnail img {
-  width: 100%;
-  height: auto;
+.mtdev-projects {
+  --gap: 1rem;
+  display: flex;
+  gap: var(--gap);
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .mtdev-projects-item {
   background-color: var(--wp--preset--color--light-gray-200);
   color: var(--wp--preset--color--mt-dark-blue);
   position: relative;
+  width: 100%;
+
+  @include mq('medium') {
+    width: calc(50% - var(--gap));
+  }
+
+  @include mq('large') {
+    width: calc(33.33% - var(--gap));
+  }
 
   .mtdev-projects-item__button {
     color: var(--wp--preset--color--mt-dark-blue);
@@ -25,6 +33,11 @@
       color: var(--wp--preset--color--mt-green);
     }
   }
+}
+
+.mtdev-projects-item__thumbnail img {
+  width: 100%;
+  height: auto;
 }
 
 .mtdev-projects-item__info {

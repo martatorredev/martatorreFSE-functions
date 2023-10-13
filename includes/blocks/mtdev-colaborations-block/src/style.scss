@@ -1,8 +1,18 @@
+@import '../../shared/responsive.scss';
+
 .colaborations__container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 1fr;
   gap: 2rem;
+
+
+  @include mq('medium') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq('large') {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .colaboration__logo {
