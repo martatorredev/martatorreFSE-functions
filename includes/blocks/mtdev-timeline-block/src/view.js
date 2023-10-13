@@ -2,7 +2,7 @@ import { inRange, throttle } from 'lodash'
 import { logoString } from './assets/logo'
 import { createLine, createMarker, createPoints } from './utils'
 
-const MARKER_OFFSET = 25
+const MARKER_OFFSET = 35
 
 document.addEventListener('DOMContentLoaded', () => {
   const timeline = document.querySelector('.mtdev-timeline')

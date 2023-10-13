@@ -1,3 +1,5 @@
+$transition-time: 0.4s;
+
 .mtdev-timeline {
   max-width: 1080px;
   margin: auto;
@@ -84,11 +86,14 @@
   justify-content: center;
   padding: 0.25rem;
   box-shadow: 0 0 0 0 transparent;
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  transition:
+    background-color $transition-time,
+    transform $transition-time,
+    box-shadow $transition-time;
 
   & svg {
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity $transition-time;
   }
 
   &.active {
@@ -105,122 +110,3 @@
     }
   }
 }
-
-
-
-// --------------
-// $brand: #D50032;
-// $grey: #E5E5E5;
-// $breakpoint: 600px;
-
-// .mtdev-timeline {
-//   position: relative;
-//   padding: 2rem 0;
-
-//   &__progress {
-//     display: block;
-//     border: none;
-//     position: absolute;
-//     z-index: 1;
-//     top: 0;
-//     bottom: 0;
-//     width: 1px;
-//     height: 100%;
-//     left: 1rem;
-//     background: $grey;
-//     transform: translateX(-50%);
-
-//     @media (min-width: $breakpoint) {
-//       left: 50%;
-//     }
-//   }
-
-//   &__indicator {
-//     position: absolute;
-//     z-index: 2;
-//     top: 0;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     size: 1rem;
-//     border-radius: 50%;
-//     background-color: $brand;
-//     opacity: 1;
-//     box-shadow: 0 0.5rem 0.75rem rgba(0, 0, 0, 0.2);
-//     margin: -0.5rem 0 0 -0.5rem;
-//     transform: scale(1);
-//     transition: opacity 0.2s, width 0.2s, height 0.2s, margin 0.2s, box-shadow 0.2s;
-
-//     @media (min-width: $breakpoint) {
-//       size: 1.5rem;
-//       margin: -0.75rem 0 0 -0.75rem;
-
-//     }
-
-//     &[data-start='true'],
-//     &[data-end='true'] {
-//       opacity: 0;
-//     }
-
-//     &[data-snapped='true'] {
-//       size: 1.5rem;
-//       margin: -0.75rem 0 0 -0.75rem;
-//       box-shadow: 0 0 0 0.25rem rgba($brand, 0.1);
-
-//       @media (min-width: $breakpoint) {
-//         size: 3rem;
-//         margin: -1.5rem 0 0 -1.5rem;
-//         box-shadow: 0 0 0 0.5rem rgba($brand, 0.1);
-
-//         svg {
-//           transform: scale(1);
-//           opacity: 1;
-//         }
-//       }
-//     }
-
-//     svg {
-//       fill: white;
-//       size: 2rem;
-//       transform: scale(0);
-//       opacity: 0;
-//       transition: all 0.2s;
-//     }
-//   }
-
-//   // Added & positioned via JS
-//   .snap-point {
-//     position: absolute;
-//     z-index: 1;
-//     size: 0.5rem;
-//     border-radius: 50%;
-//     background-color: $grey;
-//     transform: translate(-50%, -50%);
-//   }
-
-//   &__content {}
-
-//   .wp-block-media-text {
-//     $mt: &;
-//     grid-template-columns: 1fr 1fr !important;
-//     gap: 0 4rem;
-
-//     @media (max-width: $breakpoint) {
-//       grid-template-columns: 100% !important;
-//     }
-
-//     &__media {
-//       position: relative;
-//       z-index: 3;
-//     }
-
-//     &__content {
-//       position: relative;
-//       z-index: 1;
-
-//       @media (max-width: $breakpoint) {
-//         margin-left: 2rem;
-//       }
-//     }
-//   }
-// }
