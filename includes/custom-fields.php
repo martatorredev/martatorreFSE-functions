@@ -163,6 +163,13 @@ function mtdev_colaborations_fields() {
     'title' => 'Opciones',
     'fields' => array(
       array(
+        'key' => 'field_colaboration_position',
+        'label' => 'Cargo',
+        'name' => 'position',
+        'type' => 'text',
+        'required' => true,
+      ),
+      array(
         'key' => 'field_colaboration_url',
         'label' => 'URL',
         'name' => 'url',
@@ -175,7 +182,7 @@ function mtdev_colaborations_fields() {
         'name' => 'logo',
         'type' => 'image',
         'required' => true,
-        'return_format' => 'url',
+        'return_format' => 'id',
         'library' => 'all',
         'preview_size' => 'medium',
       ),

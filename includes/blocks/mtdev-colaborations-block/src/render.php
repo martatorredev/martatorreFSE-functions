@@ -28,9 +28,9 @@ $wrapper_attributes = get_block_wrapper_attributes();
     <?php
     foreach ( $colaborations as $colaboration ) {
       $id = $colaboration->ID;
-      $name = $colaboration->post_title;
+      $name = get_field( 'position', $id );
       $url = get_field( 'url', $id );
-      $logo_url = get_field( 'logo', $id );
+      $logo_id = get_field( 'logo', $id );
 
       ?>
       <article class="colaboration">
@@ -47,8 +47,19 @@ $wrapper_attributes = get_block_wrapper_attributes();
               $name
             );
           }
+
+          $logo_sizes  = wp_get_attachment_image_sizes( $logo_id );
+          $logo_src    = wp_get_attachment_image_url( $logo_id, 'full' );
+          $logo_srcset = wp_get_attachment_image_srcset( $logo_id, $logo_sizes );
+          $logo_alt    = get_post_meta( $logo_id, '_wp_attachment_image_alt', true );
+
+          printf(
+            '<img src="%s" srcset="%s" alt="%s" class="colaboration__logo" />',
+            esc_url( $logo_src ),
+            esc_attr($logo_srcset),
+            esc_attr($logo_alt)
+          );
         ?>
-        <img class="colaboration__logo" src="<?php echo $logo_url; ?>" alt="Imagen del autor del testimonio">
       </article>
       <?php
     }
