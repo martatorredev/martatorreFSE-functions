@@ -24,7 +24,6 @@
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  border-radius: 0.6rem;
   padding: 1rem;
   position: relative;
 }
@@ -35,8 +34,7 @@
   align-items: center;
   position: absolute;
   inset: 0;
-  border-radius: 0.625rem;
-  background: linear-gradient(135deg, #11EEA9 29.17%, #0395FC 70.31%, #0054FF 100%);
+  background-color: var(--wp--preset--color--mt-purple);
   color: white;
   text-decoration: underline;
   opacity: 0;
