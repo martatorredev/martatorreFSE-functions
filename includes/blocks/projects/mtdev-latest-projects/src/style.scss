@@ -173,7 +173,15 @@ $animation-delay: $animation-duration / 2;
 .mtdev-projects-filters__form {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
+
+  @include mq('small') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq('large') {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .mtdev-projects-filters__form-item {
@@ -184,7 +192,18 @@ $animation-delay: $animation-duration / 2;
 }
 
 .mtdev-projects-filters__form-item:last-child {
-  grid-column-start: 4;
+  grid-column: span 1;
+  order: -1;
+
+  @include mq('small') {
+    grid-column: span 2;
+  }
+
+  @include mq('large') {
+    grid-column: unset;
+    grid-column-start: 4;
+    order: unset;
+  }
 }
 
 // No results
