@@ -130,7 +130,7 @@ if ( ! $is_from_request && $attributes['hasFilters'] ) {
 
       <!-- Sorting item -->
       <div class="mtdev-projects-filters__form-item">
-        <label class="mtdev-projects-filters__form-label" for="s-order">Ordenar entradas por</label>
+        <label class="mtdev-projects-filters__form-label" for="s-order">Ordenar case studies por</label>
         <select class="mtdev-projects-filters__form-input" name="s-order" id="s-order">
           <option value="DESC" <?php echo $order === 'DESC' ? 'selected' : ''; ?>>Mas nuevas primero</option>
           <option value="ASC" <?php echo $order === 'ASC' ? 'selected' : ''; ?>>Mas antiguas primero</option>
@@ -141,7 +141,7 @@ if ( ! $is_from_request && $attributes['hasFilters'] ) {
       <div class="mtdev-projects-filters__form-item wp-block-search__button-inside wp-block-search__icon-button wp-block-search">
         <label class="mtdev-projects-filters__form-label wp-block-search__label" for="s-search">Buscador</label>
         <div class="wp-block-search__inside-wrapper">
-          <input class="mtdev-projects-filters__form-input wp-block-search__input" type="search" name="s-search" id="s-search" value="<?php echo esc_attr( $search ); ?>" placeholder="Buscar entradas">
+          <input class="mtdev-projects-filters__form-input wp-block-search__input" type="search" name="s-search" id="s-search" value="<?php echo esc_attr( $search ); ?>" placeholder="Buscar case studie">
           <button aria-label="Buscar" class="wp-block-search__button has-icon wp-element-button" type="submit">
             <svg class="search-icon" viewBox="0 0 24 24" width="24" height="24">
               <path d="M13 5c-3.3 0-6 2.7-6 6 0 1.4.5 2.7 1.3 3.7l-3.8 3.8 1.1 1.1 3.8-3.8c1 .8 2.3 1.3 3.7 1.3 3.3 0 6-2.7 6-6S16.3 5 13 5zm0 10.5c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5z"></path>
@@ -162,7 +162,7 @@ if ( $latest_posts->have_posts() ) {
     $latest_posts->the_post();
     ?>
     <article class="mtdev-projects-item">
-      <a class="mtdev-projects-item__link" href="<?php the_permalink(); ?>">Ver proyecto</a>
+      <a class="mtdev-projects-item__link" href="<?php the_permalink(); ?>">Ver case studie</a>
 
       <div class="mtdev-projects-item__header">
         <div class="mtdev-projects-item__thumbnail">
@@ -190,7 +190,7 @@ if ( $latest_posts->have_posts() ) {
           ?>
           <ul class="mtdev-projects-item__categories">
             <li class="mtdev-projects-item__category">
-              <a href="<?php
+              <a class="mtdev-projects-item__category-link" href="<?php
                 echo esc_url( get_category_link( $post_category->term_id ) );
               ?>"><?php echo esc_html( $post_category->name ); ?></a>
             </li>

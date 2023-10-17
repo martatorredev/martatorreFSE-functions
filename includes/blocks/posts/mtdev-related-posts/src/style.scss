@@ -17,10 +17,6 @@
   @include mq('medium') {
     width: calc(50% - var(--gap));
   }
-
-  @include mq('large') {
-    width: calc(33.33% - var(--gap));
-  }
 }
 
 .mtdev-related-posts-item__thumbnail img {
@@ -55,6 +51,12 @@
   background:  var(--wp--preset--color--mt-green);
   z-index: 1;
   position: relative;
+  transition: color 0.2s, background-color 0.2s;
+
+  &:hover {
+    background-color: var(--wp--preset--color--mt-blue);
+    color: white;
+  }
 
   a, a:hover {
     color: inherit;
@@ -100,4 +102,6 @@
 
 .mtdev-related-posts .wp-block-buttons {
   margin-top: 1.5rem;
+  position: relative;
+  z-index: 1;
 }

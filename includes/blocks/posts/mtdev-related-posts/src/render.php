@@ -62,9 +62,12 @@ if ( $related->have_posts() ) {
           ?>
           <ul class="mtdev-related-posts-item__categories">
             <li class="mtdev-related-posts-item__category">
-              <a href="<?php
-                echo esc_url( get_category_link( $post_category->term_id ) );
-              ?>"><?php echo esc_html( $post_category->name ); ?></a>
+              <a
+                class="mtdev-related-posts-item__category-link"
+                href="<?php
+                  echo esc_url( get_category_link( $post_category->term_id ) );
+                ?>"
+              ><?php echo esc_html( $post_category->name ); ?></a>
             </li>
           </ul>
           <?php

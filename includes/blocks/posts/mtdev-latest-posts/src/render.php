@@ -187,7 +187,7 @@ if ( $query->have_posts() ) {
           ?>
           <ul class="latest-posts-grid-item__categories">
             <li class="latest-posts-grid-item__category">
-              <a href="<?php
+              <a class="latest-posts-grid-item__category-link" href="<?php
                 echo esc_url( get_category_link( $post_category->term_id ) );
               ?>"><?php echo esc_html( $post_category->name ); ?></a>
             </li>

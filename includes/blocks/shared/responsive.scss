@@ -1,9 +1,9 @@
 $breakpoints: (
-  xsmall: 20em,  // 320px
-  small: 37.5em, // 600px
-  medium: 48em,  // 768px
-  large:  62em,  // 992px
-  xlarge: 75em   // 1200px
+  xsmall: 320px, // 20rem
+  small: 600px, // 37.5rem
+  medium: 768px, // 48rem
+  large: 992px, // 62 rem
+  xlarge: 1200px // 75rem
 );
 
 // Media Querys mixin helper
@@ -26,8 +26,8 @@ $breakpoints: (
       @error 'The breakpoint "#{$from}" does not exist';
     }
 
-    @if unit($from) != 'em' {
-      @error 'The unit for breakpoints must be "em", the value "#{$from}" is not valid';
+    @if unit($from) != 'px' {
+      @error 'The unit for breakpoints must be "px", the value "#{$from}" is not valid';
     }
   }
 
@@ -40,8 +40,8 @@ $breakpoints: (
       @error 'The breakpoint "#{$to}" does not exist';
     }
 
-    @if unit($to) != 'em' {
-      @error 'The unit for breakpoints must be "em", the value "#{$to}" is not valid';
+    @if unit($to) != 'px' {
+      @error 'The unit for breakpoints must be "px", the value "#{$to}" is not valid';
     }
   }
 
