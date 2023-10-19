@@ -1,5 +1,12 @@
+@import '../../shared/responsive.scss';
+
 .hero-banner {
   text-align: center;
+  margin-bottom: -10rem;
+
+  @include mq('large') {
+    margin-bottom: 0;
+  }
 
   .hero-banner__content {
     display: flex;
