@@ -3,6 +3,7 @@
 $post_type_term = array(
   'post' => 'category',
   'mis-proyectos-web' => 'mis_proyectos_web_category',
+  'ponencias' => 'ponencias_category',
 );
 
 $post_id = $block->context['postId'];
