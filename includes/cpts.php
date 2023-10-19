@@ -216,7 +216,7 @@ function mtdev_presentations_custom_post_type() {
 		'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
-		'menu_icon'           => 'dashicons-slides',
+		'menu_icon'           => 'dashicons-admin-users',
 		'show_in_menu'        => true,
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
@@ -364,6 +364,7 @@ function mtdev_custom_menu_order( $menu_ord ) {
 		'index.php',
 		'edit.php',
 		'edit.php?post_type=mis-proyectos-web',
+		'edit.php?post_type=ponencias',
 		'edit.php?post_type=testimonials',
 		'edit.php?post_type=colaboradoras',
 	);
