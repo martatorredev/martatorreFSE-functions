@@ -1,0 +1,16 @@
+{
+	"apiVersion": 3,
+	"name": "mtdev/related-presentations",
+	"title": "Ponencias relacionadas",
+	"category": "widgets",
+	"icon": "columns",
+  "supports": {
+    "align": false,
+    "html": false
+  },
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./style-index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
+

@@ -1,0 +1,236 @@
+@import '../../../shared/responsive.scss';
+
+.mtdev-presentations {
+  --gap: 1rem;
+  display: flex;
+  gap: var(--gap);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mtdev-presentations-item {
+  background-color: var(--wp--preset--color--light-gray-200);
+  color: var(--wp--preset--color--mt-dark-blue);
+  position: relative;
+  width: 100%;
+
+  @include mq('medium') {
+    width: calc(50% - var(--gap));
+  }
+
+  @include mq('large') {
+    width: calc(33.33% - var(--gap));
+  }
+
+  .mtdev-presentations-item__button {
+    color: var(--wp--preset--color--mt-dark-blue);
+    font-family: var(--wp--preset--font-family--space-grotesk);
+    font-weight: 700;
+    text-decoration: underline;
+    transition: 0.3s ease color;
+
+    &:hover {
+      color: var(--wp--preset--color--mt-green);
+    }
+  }
+}
+
+.mtdev-presentations-item__thumbnail img {
+  width: 100%;
+  height: auto;
+}
+
+.mtdev-presentations-item__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 2rem 1.5rem;
+  text-align: center;
+}
+
+.mtdev-presentations-item__info > * {
+  margin: 0;
+}
+
+.mtdev-presentations-item__categories {
+  list-style: none;
+  padding: 0;
+}
+
+.mtdev-presentations-item__category {
+  font-size: 1rem;
+  line-height: normal;
+  letter-spacing: 0.01563rem;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  background:  var(--wp--preset--color--mt-green);
+  position: relative;
+  z-index: 1;
+  transition: color 0.2s, background-color 0.2s;
+
+  &:hover {
+    background-color: var(--wp--preset--color--mt-blue);
+    color: white;
+  }
+
+  a, a:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.mtdev-presentations-item__title:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.mtdev-presentations-item__link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: var(--wp--preset--color--mt-dark-blue);
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  a {
+    color: var(--wp--preset--color--white);
+  }
+}
+
+.mtdev-presentations-item__link:focus-visible {
+  z-index: 100;
+  opacity: 1;
+}
+
+.editor-styles-wrapper .mtdev-presentations {
+  pointer-events: none;
+}
+
+
+// Loading state
+$animation-duration: 1.25s;
+$animation-delay: $animation-duration / 2;
+
+.mtdev-presentations.is-loading {
+  animation: flash $animation-duration infinite;
+}
+
+.mtdev-presentations-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.mtdev-presentations.is-loading .mtdev-presentations-item::after {
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  animation: shim $animation-duration $animation-delay infinite;
+  background-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #fff3 20%,
+    #fff8 60%,
+    transparent 100%
+  );
+  content: '';
+  z-index: 10
+}
+
+@keyframes shim {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes flash {
+  50% {
+    opacity: 0.8;
+  }
+}
+
+// Filters
+.mtdev-presentations-filters {
+  margin-bottom: 2.5rem;
+}
+
+.mtdev-presentations-filters__form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+
+  @include mq('small') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq('large') {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.mtdev-presentations-filters__form-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 0.2rem;
+}
+
+.mtdev-presentations-filters__form-item:last-child {
+  grid-column: span 1;
+  order: -1;
+
+  @include mq('small') {
+    grid-column: span 2;
+  }
+
+  @include mq('large') {
+    grid-column: unset;
+    grid-column-start: 4;
+    order: unset;
+  }
+}
+
+// No results
+.mtdev-presentations__no-results {
+  grid-column: span 3;
+  justify-self: center;
+  align-self: center;
+  margin: auto;
+}
+
+.editor-styles-wrapper  {
+  .mtdev-presentations {
+    pointer-events: none;
+
+    .mtdev-presentations-item__title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .mtdev-presentations-item a {
+      color: inherit;
+    }
+  }
+
+  .mtdev-presentations-filters {
+    pointer-events: none;
+  }
+}
+
