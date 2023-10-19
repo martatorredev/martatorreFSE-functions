@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Bloque de categorias ponencias
+ * Plugin Name: Bloque de categorias de ponencias
  * Author:      EliezerSPP
  */
 
