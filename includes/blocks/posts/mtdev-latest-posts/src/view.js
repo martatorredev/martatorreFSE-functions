@@ -71,7 +71,6 @@ const createClickHandler = (getAttributes, onChange) => event => {
     event.preventDefault()
     const pageNumber = getPageNumber(event.target)
 
-    console.log({ pageNumber })
     const newAttributes = {
       ...getAttributes(),
       paged: pageNumber

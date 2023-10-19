@@ -1,6 +1,5 @@
 import { debounce, getPageHtml, getPageNumber, removeDoubleSlashes, removePageNumber, useStore } from './utils'
 
-console.warn('ASSSSSSSSSSSSSS')
 const start = () => {
   const endpoint = getEndpoint()
   const posts = document.querySelector('.mtdev-projects')

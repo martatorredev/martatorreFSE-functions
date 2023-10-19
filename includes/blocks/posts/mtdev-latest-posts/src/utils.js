@@ -47,7 +47,6 @@ export const getPageHtml = (endpoint, params, abortController) => {
 }
 
 export const getPageNumberFromUrl = (url) => {
-  console.log({ url })
   // Check if the URL ends with "/page/{number}/"
   if (!url.includes('/page/')) return 1
 
