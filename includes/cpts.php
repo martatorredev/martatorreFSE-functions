@@ -177,6 +177,100 @@ function mtdev_case_studies_custom_taxonomy() {
 add_action( 'init', 'mtdev_case_studies_custom_post_type', 0 );
 add_action( 'init', 'mtdev_case_studies_custom_taxonomy', 0 );
 
+
+// Add Presentations custom post type
+function mtdev_presentations_custom_post_type() {
+	$labels = array(
+		'name'               => 'Ponencias',
+		'singular_name'      => 'Ponencia',
+		'menu_name'          => 'Ponencias',
+		'parent_item_colon'  => 'Ponencia padre',
+		'all_items'          => 'Todas las ponencias',
+		'view_item'          => 'Ver ponencia',
+		'add_new_item'       => 'Añadir nueva ponencia',
+		'add_new'            => 'Añadir nueva',
+		'edit_item'          => 'Editar ponencia',
+		'update_item'        => 'Actualizar ponencia',
+		'search_items'       => 'Buscar ponencia',
+		'not_found'          => 'No encontrada',
+		'not_found_in_trash' => 'No encontrada en la papelera',
+	);
+
+	$args = array(
+		'label'               => 'Ponencias',
+		'description'         => 'Ponencias por Marta Torre',
+		'labels'              => $labels,
+		'supports'            => array(
+			'title',
+			'editor',
+			'excerpt',
+			'author',
+			'thumbnail',
+			'comments',
+			'revisions',
+			'custom-fields',
+		),
+		'taxonomies'          => array(
+			'ponencias_categories',
+		),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'menu_icon'           => 'dashicons-slides',
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 2,
+		'can_export'          => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'query_var'           => true,
+		'capability_type'     => 'post',
+		'show_in_rest'        => true,
+		'has_archive'         => 'ponencias',
+	);
+
+	// Registration of the custom post type
+	register_post_type( 'ponencias', $args );
+}
+
+function mtdev_presentations_custom_taxonomy() {
+	$labels = array(
+		'name'              => 'Categorias',
+		'singular_name'     => 'Categoria',
+		'search_items'      => 'Buscar categorias',
+		'all_items'         => 'Todas las categorias',
+		'parent_item'       => 'Categoria padre',
+		'parent_item_colon' => 'Categoria padre:',
+		'edit_item'         => 'Editar categoria',
+		'update_item'       => 'Actualizar categoria',
+		'add_new_item'      => 'Añadir nueva categoria',
+		'new_item_name'     => 'Nombre de la nueva categoria',
+		'menu_name'         => 'Categorías Ponencias',
+	);
+	$args   = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'show_in_rest'      => true,
+		'rewrite' => array(
+			'slug' => 'ponencias-category',
+		),
+	);
+	register_taxonomy(
+		'ponencias_category',
+		array(
+			'ponencias',
+		),
+		$args
+	);
+}
+
+add_action( 'init', 'mtdev_presentations_custom_post_type', 0 );
+add_action( 'init', 'mtdev_presentations_custom_taxonomy', 0 );
+
 // Add Colaboradoras custom post type
 function mtdev_colaboradoras_custom_post_type() {
 	$labels = array(
