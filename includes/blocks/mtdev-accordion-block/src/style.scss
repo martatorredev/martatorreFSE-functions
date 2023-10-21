@@ -43,8 +43,6 @@ $arrow-height: 0.5em;
 }
 
 .mtdev-accordion__content {
-  max-height: 0;
-  transition: max-height 0.5s;
   line-height: 1.3;
 }
 
@@ -58,7 +56,15 @@ $arrow-height: 0.5em;
       transform: translateY(-50%) rotate(180deg);
     }
   }
+}
 
+.mtdev-accordion__header.ui-accordion-header-active {
+  color: var(--wp--preset--color--mt-blue, #11D9ED);
+
+  // Arrow
+  svg {
+    transform: translateY(-50%) rotate(180deg);
+  }
 }
 
 .editor-styles-wrapper {
@@ -68,4 +74,15 @@ $arrow-height: 0.5em;
       max-height: 100%;
     }
   }
+}
+
+.ui-accordion .ui-accordion-header {
+	display: block;
+	cursor: pointer;
+	position: relative;
+	margin: 2px 0 0 0;
+}
+.ui-accordion .ui-accordion-content {
+	border-top: 0;
+	overflow: auto;
 }

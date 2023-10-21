@@ -17,6 +17,7 @@
     "@wordpress/scripts": "^26.9.0"
   },
   "dependencies": {
-    "@wordpress/icons": "^9.31.0"
+    "@wordpress/icons": "^9.31.0",
+    "jquery-ui": "^1.13.2"
   }
 }
