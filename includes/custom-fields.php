@@ -64,6 +64,12 @@ function mtdev_project_fields() {
         'type' => 'text',
       ),
       array(
+        'key' => 'field_project_client_url',
+        'label' => 'URL del Cliente',
+        'name' => 'url_cliente',
+        'type' => 'url',
+      ),
+      array(
         'key' => 'field_project_type',
         'label' => 'Tipo de proyecto',
         'name' => 'tipo_de_proyecto',
