@@ -7,13 +7,22 @@ $wrapper_attributes = get_block_wrapper_attributes();
 	<?php
 	// Display client information.
 	$client = get_field( 'cliente' );
+  $client_url = get_field( 'url_cliente' );
+
 	if ( $client ) {
-    ?>
-    <h4 class="project-info__title">Cliente</h4>
-    <p class="project-info__text">
-      <?php echo esc_html( $client ); ?>
-    </p>
-    <?php
+    ?><h4 class="project-info__title">Cliente</h4><?php
+
+    $client_markup = '<p class="project-info__text">%s</p>';
+
+    if ( $client_url ) {
+      $client_markup = sprintf( $client_markup, '<a href="%s" target="_blank">%s</a>' );
+    }
+
+    printf(
+      $client_markup,
+      esc_url( $client_url ),
+      esc_html( $client )
+    );
 	}
 
 	// Display project type information.
@@ -28,7 +37,7 @@ $wrapper_attributes = get_block_wrapper_attributes();
 	}
 
 	// Display collaborators.
-	mtdev_display_repeater_field( 'Equipo', 'profesionales', 'project-info__list' );
+	mtdev_display_repeater_field( 'Profesionales', 'profesionales', 'project-info__list' );
 
 	// Display services.
 	mtdev_display_repeater_field( 'Servicios', 'services', 'project-info__list' );
