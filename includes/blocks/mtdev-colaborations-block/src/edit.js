@@ -29,7 +29,7 @@ const Edit = ({ attributes, setAttributes }) => {
           selectedCategoryId={category}
           onOrderByChange={orderBy => setAttributes({ orderBy })}
           onOrderChange={order => setAttributes({ order })}
-          onCategoryChange={category => setAttributes({ category: category || -1 })}
+          onCategoryChange={category => setAttributes({ category: Number(category) || -1 })}
           onNumberOfItemsChange={numberOfItems => setAttributes({ numberOfItems })}
         />
       </PanelBody>

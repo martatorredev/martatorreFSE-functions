@@ -15,7 +15,8 @@
       "type": "string"
     },
     "category": {
-      "type": "number"
+      "type": "number",
+      "default": -1
     },
     "order": {
       "type": "string",
