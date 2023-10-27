@@ -78,7 +78,7 @@ registerBlockType(metadata.name, {
                   numberOfItems={numberOfItems}
                   categoriesList={postCategories}
                   selectedCategoryId={category}
-                  onCategoryChange={category => setAttributes({ category: category || -1 })}
+                  onCategoryChange={category => setAttributes({ category: Number(category) || -1 })}
                   onNumberOfItemsChange={numberOfItems => setAttributes({ numberOfItems })}
                   maxItems={MAX_POSTS}
                 />
