@@ -213,3 +213,44 @@ function mtdev_colaborations_fields() {
 }
 
 add_action( 'acf/init', 'mtdev_colaborations_fields' );
+
+function mtdev_presentations_fields() {
+	acf_add_local_field_group(array(
+    'key' => 'group_presentations',
+    'title' => 'Opciones',
+    'fields' => array(
+      array(
+        'key' => 'field_presentation_video',
+        'label' => 'Video',
+        'name' => 'video',
+        'type' => 'oembed',
+        'required' => false,
+      ),
+      array(
+        'key' => 'field_presentation_url',
+        'label' => 'Slide URL',
+        'name' => 'slide_url',
+        'type' => 'url',
+        'required' => false,
+      ),
+    ),
+    'location' => array(
+      array(
+        array(
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'ponencias',
+        ),
+      ),
+    ),
+    'menu_order' => -INF,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'active' => true,
+    'show_in_rest' => false,
+  ));
+}
+
+add_action( 'acf/init', 'mtdev_presentations_fields' );
