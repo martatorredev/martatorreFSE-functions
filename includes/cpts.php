@@ -87,24 +87,24 @@ add_action( 'init', 'mtdev_testimonials_custom_taxonomy', 0 );
 // Add Case Studies custom post type
 function mtdev_case_studies_custom_post_type() {
 	$labels = array(
-		'name'               => 'Case Studies',
-		'singular_name'      => 'Case Studie',
-		'menu_name'          => 'Case Studies',
-		'parent_item_colon'  => 'Case Studie padre',
-		'all_items'          => 'Todos los case studies',
-		'view_item'          => 'Ver case studie',
-		'add_new_item'       => 'Añadir nuevo case studie',
+		'name'               => 'Proyectos',
+		'singular_name'      => 'Proyecto',
+		'menu_name'          => 'Proyectos',
+		'parent_item_colon'  => 'Proyecto padre',
+		'all_items'          => 'Todos los proyectos',
+		'view_item'          => 'Ver proyecto',
+		'add_new_item'       => 'Añadir nuevo proyecto',
 		'add_new'            => 'Añadir nuevo',
-		'edit_item'          => 'Editar case studie',
-		'update_item'        => 'Actualizar case studie',
-		'search_items'       => 'Buscar case studie',
+		'edit_item'          => 'Editar proyecto',
+		'update_item'        => 'Actualizar proyecto',
+		'search_items'       => 'Buscar proyecto',
 		'not_found'          => 'No encontrado',
 		'not_found_in_trash' => 'No encontrado en la papelera',
 	);
 
 	$args = array(
-		'label'               => 'Case Studies',
-		'description'         => 'Case Studies por Marta Torre',
+		'label'               => 'Proyectos',
+		'description'         => 'Proyectos por Marta Torre',
 		'labels'              => $labels,
 		'supports'            => array(
 			'title',
@@ -152,7 +152,7 @@ function mtdev_case_studies_custom_taxonomy() {
 		'update_item'       => 'Actualizar categoria',
 		'add_new_item'      => 'Añadir nueva categoria',
 		'new_item_name'     => 'Nombre de la nueva categoria',
-		'menu_name'         => 'Categorías Case Studies',
+		'menu_name'         => 'Categorías Proyectos',
 	);
 	$args   = array(
 		'hierarchical'      => true,
@@ -162,8 +162,8 @@ function mtdev_case_studies_custom_taxonomy() {
 		'query_var'         => true,
 		'show_in_rest'      => true,
 		'rewrite' => array(
-            'slug' => 'mis-proyectos-web-category',
-        ),
+      'slug' => 'mis-proyectos-web-category',
+    ),
 	);
 	register_taxonomy(
 		'mis_proyectos_web_category',
