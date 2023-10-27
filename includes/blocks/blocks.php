@@ -14,5 +14,5 @@ require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/projects/mtdev-project
 require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/projects/mtdev-project-info/mtdev-project-info.php';
 require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/presentations/mtdev-related-presentations/mtdev-related-presentations.php';
 require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/presentations/mtdev-latest-presentations/mtdev-latest-presentations.php';
-require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/presentations/mtdev-latest-presentations/mtdev-latest-presentations.php';
+require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/presentations/mtdev-presentation-info/mtdev-presentation-info.php';
 require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/presentations/mtdev-presentation-categories/mtdev-presentation-categories.php';
