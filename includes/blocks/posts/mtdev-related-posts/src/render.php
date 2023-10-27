@@ -82,14 +82,11 @@ if ( $related->have_posts() ) {
             the_title();
           ?>
         </h3>
-
-        <div class="wp-block-buttons is-content-justification-center is-layout-flex">
-          <div class="wp-block-button is-style-fill">
-            <a class="wp-block-button__link has-white-color has-mt-dark-blue-background-color has-text-color has-background wp-element-button" href="<?php the_permalink(); ?>">
-              Leer más
-            </a>
-          </div>
-        </div>
+        <h3 class="mtdev-related-posts-item__title">
+          <a class="mtdev-related-posts-item__title-link" href="<?php the_permalink(); ?>">
+            <?php the_title(); ?>
+          </a>
+        </h3>
       </div>
     </article>
     <?php

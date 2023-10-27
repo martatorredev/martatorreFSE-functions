@@ -29,7 +29,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  padding: 2rem 2.7rem 1.5rem;
+  padding: 2rem 2.7rem;
   text-align: center;
 }
 
@@ -75,6 +75,11 @@
   line-height: 1.2;
 }
 
+.mtdev-related-posts-item__title-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .mtdev-related-posts-item__link {
   position: absolute;
   top: 0;
@@ -98,10 +103,4 @@
 .mtdev-related-posts-item__link:focus-visible {
   z-index: 100;
   opacity: 1;
-}
-
-.mtdev-related-posts .wp-block-buttons {
-  margin-top: 1.5rem;
-  position: relative;
-  z-index: 1;
 }

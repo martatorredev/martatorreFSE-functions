@@ -198,20 +198,11 @@ if ( $query->have_posts() ) {
 
         <time class="latest-posts-grid-item__date"><?php the_date( 'd \d\e F \d\e Y')?></time>
 
-
         <h3 class="latest-posts-grid-item__title">
-          <?php
-            the_title();
-          ?>
+          <a class="latest-posts-grid-item__title-link" href="<?php the_permalink(); ?>">
+            <?php the_title(); ?>
+          </a>
         </h3>
-
-        <div class="wp-block-buttons is-content-justification-center is-layout-flex">
-          <div class="wp-block-button is-style-fill">
-            <a class="wp-block-button__link has-white-color has-mt-dark-blue-background-color has-text-color has-background wp-element-button" href="<?php the_permalink(); ?>">
-              Leer más
-            </a>
-          </div>
-        </div>
       </div>
     </article>
     <?php
