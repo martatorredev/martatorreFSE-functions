@@ -69,22 +69,22 @@ $transition-time: 0.4s;
   transform: translateX(calc(-50% + 0.5px)) translateY(-50%);
 }
 
-
 .mtdev-timeline__marker {
+  --size: 3.5rem;
   box-sizing: border-box;
-  width: 1rem;
-  height: 1rem;
+  height: var(--size);
+  width: var(--size);
   position: sticky;
   top: 50vh;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%) scale(0.2);
   border-radius: 50%;
   background: var(--wp--preset--color--mt-green);
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.25rem;
+  padding: calc(var(--size) * 0.25);
   box-shadow: 0 0 0 0 transparent;
   transition:
     background-color $transition-time,
@@ -98,8 +98,8 @@ $transition-time: 0.4s;
 
   &.active {
     background: var(--wp--preset--color--mt-blue);
-    transform: translate(-50%) scale(3.5);
-    box-shadow: 0 0 0 0.2rem #11dcee99;
+    box-shadow: 0 0 0 calc(var(--size) * 0.2) rgba(17,220,238,.6);
+    transform: translate(-50%) scale(1);
 
     @media screen and (max-width: 667px) {
       transform: translate(-50%) scale(1.5);
