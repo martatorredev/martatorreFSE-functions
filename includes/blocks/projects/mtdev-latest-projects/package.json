@@ -1,11 +1,11 @@
 {
-	"name":"mtdev-projects",
-	"version":"1.0.0",
-	"description":"Bloque de proyectos",
-	"author":"EliezerSPP",
-	"main":"build/index.js",
-	"scripts":{
-    "build": "wp-scripts build --webpack-copy-php",
+	"name": "mtdev-projects",
+	"version": "1.0.0",
+	"description": "Bloque de proyectos",
+	"author": "EliezerSPP",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build --webpack-copy-php",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
@@ -13,7 +13,10 @@
 		"plugin-zip": "wp-scripts plugin-zip",
 		"start": "wp-scripts start --webpack-copy-php"
 	},
-  "devDependencies": {
-    "@wordpress/scripts": "^26.9.0"
-  }
+	"devDependencies": {
+		"@wordpress/scripts": "^26.9.0"
+	},
+	"dependencies": {
+		"@wordpress/icons": "^9.37.0"
+	}
 }

@@ -74,6 +74,7 @@ $frontend_attrributes = array(
   'hasPagination' => $attributes['hasPagination'],
   'numberOfItems' => $query->query_vars['posts_per_page'],
   'orderBy'       => $attributes['orderBy'],
+  'titleLevel'    => $attributes['titleLevel'],
   'isFromRequest' => true,
 );
 
@@ -198,12 +199,15 @@ if ( $latest_posts->have_posts() ) {
           <?php
         }
 
+        $titleTag = 'h' . $attributes['titleLevel'];
+
+        printf(
+          '<%1$s class="mtdev-projects-item__title">%2$s</%1$s>',
+          $titleTag,
+          get_the_title()
+        );
+
         ?>
-
-        <h3 class="mtdev-projects-item__title">
-          <?php the_title(); ?>
-        </h3>
-
         <a class="mtdev-projects-item__button" href="<?php the_permalink(); ?>">
           Ver proyecto
         </a>

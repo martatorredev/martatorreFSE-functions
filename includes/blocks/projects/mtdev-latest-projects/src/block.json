@@ -39,7 +39,11 @@
     "inheritQuery": {
       "type": "boolean",
       "default": false
-    }
+    },
+    "titleLevel": {
+			"type": "number",
+			"default": 3
+		}
   },
 	"editorScript": "file:./index.js",
 	"viewScript": "file:./view.js",

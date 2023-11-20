@@ -1,4 +1,4 @@
-import { InspectorControls, useBlockProps } from '@wordpress/block-editor'
+import { InspectorControls, useBlockProps, BlockControls } from '@wordpress/block-editor'
 import {
   PanelBody,
   QueryControls,
@@ -10,6 +10,7 @@ import ServerSideRender from '@wordpress/server-side-render'
 import { registerBlockType } from '@wordpress/blocks'
 import { __ } from '@wordpress/i18n'
 
+import HeadingLevelDropdown from './heading-level-dropdown'
 import metadata from './block.json'
 
 import './style.scss'
@@ -36,7 +37,8 @@ registerBlockType(metadata.name, {
       // orderBy,
       hasPagination,
       hasFilters,
-      inheritQuery
+      inheritQuery,
+      titleLevel
     } = attributes
 
     const postCategories = useSelect(select => (
@@ -85,6 +87,12 @@ registerBlockType(metadata.name, {
               </>
             )
           }
+          <BlockControls group='block'>
+            <HeadingLevelDropdown
+              value={titleLevel}
+              onChange={titleLevel => setAttributes({ titleLevel })}
+            />
+          </BlockControls>
         </PanelBody>
       </InspectorControls>
     )
