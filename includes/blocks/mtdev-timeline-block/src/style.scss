@@ -102,7 +102,7 @@ $transition-time: 0.4s;
     transform: translate(-50%) scale(1);
 
     @media screen and (max-width: 667px) {
-      transform: translate(-50%) scale(1.5);
+      transform: translate(-50%) scale(0.5);
     }
 
     & svg {
