@@ -132,8 +132,8 @@ if ( ! $is_from_request && $attributes['hasFilters'] ) {
       <div class="mtdev-projects-filters__form-item">
         <label class="mtdev-projects-filters__form-label" for="s-order">Ordenar proyectos por</label>
         <select class="mtdev-projects-filters__form-input" name="s-order" id="s-order">
-          <option value="DESC" <?php echo $order === 'DESC' ? 'selected' : ''; ?>>Mas nuevas primero</option>
-          <option value="ASC" <?php echo $order === 'ASC' ? 'selected' : ''; ?>>Mas antiguas primero</option>
+          <option value="DESC" <?php echo $order === 'DESC' ? 'selected' : ''; ?>>Más nuevos primero</option>
+          <option value="ASC" <?php echo $order === 'ASC' ? 'selected' : ''; ?>>Más antiguos primero</option>
         </select>
       </div>
 

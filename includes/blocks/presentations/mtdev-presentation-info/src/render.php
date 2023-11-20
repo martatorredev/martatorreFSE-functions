@@ -10,7 +10,7 @@
   <?php
     if ( $slide_url ) {
       printf(
-        '<p>Slides: <a href="%s">%s</a></p>',
+        '<p>Slides: <a href="%s" target="_blank">%s</a></p>',
         esc_url( $slide_url ),
         esc_html( $slide_url )
       );

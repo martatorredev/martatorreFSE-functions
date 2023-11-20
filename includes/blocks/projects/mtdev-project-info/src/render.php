@@ -14,15 +14,17 @@ $wrapper_attributes = get_block_wrapper_attributes();
 
     $client_markup = '<p class="project-info__text">%s</p>';
 
-    if ( $client_url ) {
-      $client_markup = sprintf( $client_markup, '<a href="%s" target="_blank">%s</a>' );
-    }
-
-    printf(
-      $client_markup,
-      esc_url( $client_url ),
-      esc_html( $client )
-    );
+    if ( ! $client_url ) {
+			printf(
+				$client_markup,
+				esc_html( $client )
+			);
+    } else {
+			printf(
+				$client_markup,
+				'<a href="' . esc_url( $client_url ) . '" target="_blank">' . esc_html( $client ) . '</a>'
+			);
+		}
 	}
 
 	// Display project type information.

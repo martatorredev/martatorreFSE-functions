@@ -128,8 +128,8 @@ if ( ! $is_from_request && $attributes['hasFilters'] ) {
       <div class="latest-posts-grid-filters__form-item">
         <label class="latest-posts-grid-filters__form-label" for="s-order">Ordenar entradas por</label>
         <select class="latest-posts-grid-filters__form-input" name="s-order" id="s-order">
-          <option value="DESC" <?php echo $order === 'DESC' ? 'selected' : ''; ?>>Mas nuevas primero</option>
-          <option value="ASC" <?php echo $order === 'ASC' ? 'selected' : ''; ?>>Mas antiguas primero</option>
+          <option value="DESC" <?php echo $order === 'DESC' ? 'selected' : ''; ?>>Más nuevas primero</option>
+          <option value="ASC" <?php echo $order === 'ASC' ? 'selected' : ''; ?>>Más antiguas primero</option>
         </select>
       </div>
 

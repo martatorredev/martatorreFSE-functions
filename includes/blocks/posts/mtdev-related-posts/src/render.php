@@ -76,12 +76,6 @@ if ( $related->have_posts() ) {
 
         <time class="mtdev-related-posts-item__date"><?php the_date( 'd \d\e F \d\e Y')?></time>
 
-
-        <h3 class="mtdev-related-posts-item__title">
-          <?php
-            the_title();
-          ?>
-        </h3>
         <h3 class="mtdev-related-posts-item__title">
           <a class="mtdev-related-posts-item__title-link" href="<?php the_permalink(); ?>">
             <?php the_title(); ?>
