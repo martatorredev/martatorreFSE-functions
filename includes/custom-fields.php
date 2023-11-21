@@ -220,6 +220,12 @@ function mtdev_presentations_fields() {
     'title' => 'Opciones',
     'fields' => array(
       array(
+        'key' => 'field_presentation_event',
+        'label' => 'Evento',
+        'name' => 'evento',
+        'type' => 'text',
+      ),
+      array(
         'key' => 'field_presentation_video',
         'label' => 'Video',
         'name' => 'video',
