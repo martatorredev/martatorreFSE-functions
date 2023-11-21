@@ -13,6 +13,13 @@
   color: var(--wp--preset--color--mt-dark-blue);
   position: relative;
   width: 100%;
+  box-shadow: 0 0 0 0 var(--wp--preset--color--mt-green);
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 0 0 4px var(--wp--preset--color--mt-green);
+    transition: box-shadow 0.3s;
+  }
 
   @include mq('medium') {
     width: calc(50% - var(--gap));

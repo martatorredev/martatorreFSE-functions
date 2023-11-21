@@ -69,15 +69,25 @@ if ( $related->have_posts() ) {
           <?php
         }
 
+        $client = get_field('cliente');
+
+        if ( $client ) {
+          printf(
+            '<p class="mtdev-related-projects-item__client">%1$s</p>',
+            $client
+          );
+        }
+
+        $titleTag = 'h' . $attributes['titleLevel'];
+
+        printf(
+          '<%1$s class="mtdev-related-projects-item__title"><a class="mtdev-related-projects-item__title-link" href="%2$s">%3$s</a></%1$s>',
+          $titleTag,
+          get_the_permalink(),
+          get_the_title()
+        );
+
         ?>
-
-        <h3 class="mtdev-related-projects-item__title">
-          <?php the_title(); ?>
-        </h3>
-
-        <a class="mtdev-related-projects-item__button" href="<?php the_permalink(); ?>">
-          Ver proyecto
-        </a>
       </div>
     </article>
     <?php

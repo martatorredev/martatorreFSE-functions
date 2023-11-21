@@ -198,15 +198,25 @@ if ( $latest_posts->have_posts() ) {
           <?php
         }
 
+        $event = get_field('evento');
+
+        if ( $event ) {
+          printf(
+            '<p class="mtdev-presentations-item__event">%1$s</p>',
+            $event
+          );
+        }
+
+        $titleTag = 'h' . $attributes['titleLevel'];
+
+        printf(
+          '<%1$s class="mtdev-presentations-item__title"><a class="mtdev-presentations-item__title-link" href="%2$s">%3$s</a></%1$s>',
+          $titleTag,
+          get_the_permalink(),
+          get_the_title()
+        );
+
         ?>
-
-        <h3 class="mtdev-presentations-item__title">
-          <?php the_title(); ?>
-        </h3>
-
-        <a class="mtdev-presentations-item__button" href="<?php the_permalink(); ?>">
-          Ver ponencia
-        </a>
       </div>
     </article>
     <?php
