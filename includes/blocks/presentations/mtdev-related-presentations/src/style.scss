@@ -9,7 +9,7 @@
 }
 
 .mtdev-related-presentations-item {
-  background-color: var(--wp--preset--color--white);
+  background-color: var(--wp--preset--color--light-gray-200);
   color: var(--wp--preset--color--mt-dark-blue);
   position: relative;
   width: 100%;
@@ -50,7 +50,6 @@
   gap: 1rem;
   padding: 2rem 2rem 1.5rem;
   text-align: center;
-  background-color: var(--wp--preset--color--light-gray-200);
 }
 
 .mtdev-related-presentations-item__info > * {

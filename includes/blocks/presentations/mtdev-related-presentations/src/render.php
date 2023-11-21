@@ -73,7 +73,7 @@ if ( $related->have_posts() ) {
 
         if ( $event ) {
           printf(
-            '<p class="mtdev-presentations-item__event">%1$s</p>',
+            '<p class="mtdev-related-presentations-item__event">%1$s</p>',
             $event
           );
         }
@@ -81,7 +81,7 @@ if ( $related->have_posts() ) {
         $titleTag = 'h' . $attributes['titleLevel'];
 
         printf(
-          '<%1$s class="mtdev-presentations-item__title"><a class="mtdev-presentations-item__title-link" href="%2$s">%3$s</a></%1$s>',
+          '<%1$s class="mtdev-related-presentations-item__title"><a class="mtdev-related-presentations-item__title-link" href="%2$s">%3$s</a></%1$s>',
           $titleTag,
           get_the_permalink(),
           get_the_title()
