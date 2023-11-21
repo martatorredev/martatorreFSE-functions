@@ -2,9 +2,9 @@ import { inRange, throttle } from 'lodash'
 import { logoString } from './assets/logo'
 import { createLine, createMarker, createPoints } from './utils'
 
-const MARKER_OFFSET = 35
+const MARKER_OFFSET = 25
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   const timeline = document.querySelector('.mtdev-timeline')
   if (!timeline) return
 
@@ -23,8 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const handleScroll = throttle(() => {
     const centerPosition = window.scrollY + window.innerHeight / 2
+    const isMobile = window.innerWidth < 768
+    const offset = !isMobile
+      ? MARKER_OFFSET
+      : MARKER_OFFSET * 0.6
 
-    if (pointPositions.some(position => inRange(centerPosition, position - MARKER_OFFSET, position + MARKER_OFFSET))) {
+    if (pointPositions.some(position => inRange(centerPosition, position - offset, position + offset))) {
       marker.classList.add('active')
     } else {
       marker.classList.remove('active')

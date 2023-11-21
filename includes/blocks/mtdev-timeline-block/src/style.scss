@@ -77,7 +77,7 @@ $transition-time: 0.4s;
   position: sticky;
   top: 50vh;
   left: 50%;
-  transform: translate(-50%) scale(0.2);
+  transform: translateX(-50%) translateY(-50%) scale(0.2);
   border-radius: 50%;
   background: var(--wp--preset--color--mt-green);
   z-index: 1;
@@ -99,10 +99,10 @@ $transition-time: 0.4s;
   &.active {
     background: var(--wp--preset--color--mt-blue);
     box-shadow: 0 0 0 calc(var(--size) * 0.2) rgba(17,220,238,.6);
-    transform: translate(-50%) scale(1);
+    transform: translateX(-50%) translateY(-50%) scale(1);
 
     @media screen and (max-width: 667px) {
-      transform: translate(-50%) scale(0.5);
+      transform: translateX(-50%) translateY(-50%) scale(0.5);
     }
 
     & svg {
