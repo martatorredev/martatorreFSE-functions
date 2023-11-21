@@ -23,3 +23,6 @@ require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/admin-css.php';
 
 // Blocks
 require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/blocks.php';
+
+// Head
+require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/head.php';
