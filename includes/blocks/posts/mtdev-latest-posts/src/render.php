@@ -31,6 +31,7 @@ $category = array_key_exists( 'category', $attributes )
 $category = intval( $category );
 
 if ( $category > 0 ) {
+  /* The code you provided is setting up a tax_query and meta_query for the WP_Query object. */
   $args['tax_query'] = array(
     array(
       'taxonomy' => 'category',
@@ -38,13 +39,17 @@ if ( $category > 0 ) {
       'terms'    => $category,
     )
   );
-  $args['meta_query'] = array(
-    array(
-      'key'     => 'rank_math_primary_category',
-      'value'   => $category,
-      'compare' => 'LIKE'
-    )
-  );
+
+  /* The commented out code is setting up a meta_query for the WP_Query object. It is checking if the
+  'rank_math_primary_category' meta key has a value that is similar to the provided category value.
+  However, this code is currently not being used in the query as it is commented out. */
+  // $args['meta_query'] = array(
+  //   array(
+  //     'key'     => 'rank_math_primary_category',
+  //     'value'   => $category,
+  //     'compare' => 'LIKE'
+  //   )
+  // );
 }
 
 $order = mtdev_get_var( 's-order', false );
