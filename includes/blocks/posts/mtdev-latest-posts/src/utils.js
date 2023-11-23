@@ -39,10 +39,8 @@ export const removePageNumber = (url) => {
   return newUrl
 }
 
-export const getPageHtml = (endpoint, params, abortController) => {
-  const endpointWithParams = concatUrlWithParams(endpoint, params)
-
-  return fetch(endpointWithParams, { signal: abortController.signal })
+export const getPageHtml = (endpoint, abortController) => {
+  return fetch(endpoint, { signal: abortController.signal })
     .then(response => response.json())
 }
 

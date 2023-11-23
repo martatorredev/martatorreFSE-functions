@@ -1,4 +1,4 @@
-import { debounce, getPageHtml, getPageNumber, removeDoubleSlashes, removePageNumber, useStore } from './utils'
+import { concatUrlWithParams, debounce, getPageHtml, getPageNumber, removeDoubleSlashes, removePageNumber, useStore } from './utils'
 
 const start = () => {
   const endpoint = getEndpoint()
@@ -37,9 +37,14 @@ const start = () => {
       const newAbortController = new AbortController()
       setAbort(newAbortController)
 
-      const html = await getPageHtml(endpoint, newAttributes, newAbortController)
+      const endpointWithParams = concatUrlWithParams(endpoint, newAttributes)
+      const html = await getPageHtml(endpointWithParams, newAbortController)
 
       posts.innerHTML = html
+
+      // Replace url with the new one
+      window.history.pushState({}, document.title, endpointWithParams.replace(endpoint, window.location.href))
+
       setAttributes(newAttributes)
       setIsLoading(false)
     } catch (error) {
