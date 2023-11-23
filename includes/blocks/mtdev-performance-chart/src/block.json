@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "mtdev/performance-chart",
+	"title": "Gráfica de rendimiento",
+	"category": "widgets",
+	"icon": "dashboard",
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "html": false
+  },
+  "attributes": {
+    "percent": {
+      "type": "number",
+      "default": 50
+    }
+  },
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
+
