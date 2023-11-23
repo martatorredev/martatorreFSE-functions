@@ -4,6 +4,7 @@ require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/mtdev-testimonials-blo
 require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/mtdev-colaborations-block/mtdev-colaborations-block.php';
 require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/mtdev-accordion-block/mtdev-accordion-block.php';
 require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/mtdev-timeline-block/mtdev-timeline-block.php';
+require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/mtdev-performance-chart/mtdev-performance-chart.php';
 require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/posts/mtdev-latest-posts/mtdev-latest-posts.php';
 require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/posts/mtdev-main-term/mtdev-main-term.php';
 require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/posts/mtdev-post-time-to-read/mtdev-post-time-to-read.php';
