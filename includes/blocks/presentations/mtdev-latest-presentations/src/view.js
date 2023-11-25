@@ -1,13 +1,15 @@
-import { concatUrlWithParams, debounce, getPageHtml, getPageNumber, removeDoubleSlashes, removePageNumber, useStore } from './utils'
+import { concatUrlWithParams, debounce, getPageHtml, getPageNumber, pick, removeDoubleSlashes, removePageNumber, useStore } from './utils'
 
 const start = () => {
   const endpoint = getEndpoint()
   const presentations = document.querySelector('.mtdev-presentations')
+  const basename = removePageNumber(window.location.origin + window.location.pathname)
 
   const initialAttributes = JSON.parse(presentations.dataset.attributes)
-  const [getAttributes, setAttributes] = useStore({
+  const [getAttributes, setAttributes, subscribeAtrributes] = useStore({
     ...initialAttributes,
-    base: removePageNumber(window.location.href)
+    paged: initialAttributes.paged || 1,
+    base: basename
   })
 
   const [getAbort, setAbort] = useStore(new AbortController())
@@ -26,6 +28,25 @@ const start = () => {
     }
   })
 
+  subscribeAtrributes(attributes => {
+    // Replace url with the new one
+    const publicAttributes = pick(attributes, ['paged', 's-search', 's-order', 's-category'])
+    const newUrl = concatUrlWithParams(basename, publicAttributes)
+
+    window.history.pushState({}, document.title, newUrl)
+
+    /**
+     * The title sometimes is like this:
+     * PageTitle » Page X of Y » SiteName
+     * So we need to remove the "Page X of Y" part
+     */
+    const titleParts = document.title.split(' » ')
+    if (titleParts.length < 3) return // Because the title is not like we expected
+
+    const newTitle = titleParts[0] + ' » ' + titleParts[2]
+    document.title = newTitle
+  })
+
   const handleAttributesChange = async (newAttributes) => {
     setIsLoading(true)
     try {
@@ -41,9 +62,6 @@ const start = () => {
       const html = await getPageHtml(endpointWithParams, newAbortController)
 
       presentations.innerHTML = html
-
-      // Replace url with the new one
-      window.history.pushState({}, document.title, endpointWithParams.replace(endpoint, window.location.href))
 
       setAttributes(newAttributes)
       setIsLoading(false)

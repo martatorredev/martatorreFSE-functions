@@ -66,8 +66,9 @@ export const getPageNumber = (element) => {
     }
   } catch (error) {
     console.warn('[getPageNumber] Unexpected error:', error)
-    return 1
   }
+
+  return 1
 }
 
 export const debounce = (callback, delay) => {
@@ -81,4 +82,16 @@ export const debounce = (callback, delay) => {
       if (typeof callback === 'function') callback(...args)
     }, delay)
   }
+}
+
+export const pick = (object, keys) => {
+  const result = {}
+
+  for (const key of keys) {
+    if (Object.prototype.hasOwnProperty.call(object, key)) {
+      result[key] = object[key]
+    }
+  }
+
+  return result
 }
