@@ -5,12 +5,13 @@ const start = () => {
   const presentations = document.querySelector('.mtdev-presentations')
   const basename = removePageNumber(window.location.origin + window.location.pathname)
 
-  const initialAttributes = JSON.parse(presentations.dataset.attributes)
-  const [getAttributes, setAttributes, subscribeAtrributes] = useStore({
-    ...initialAttributes,
-    paged: initialAttributes.paged || 1,
+  const datasetAttributes = JSON.parse(presentations.dataset.attributes)
+  const initialAttributes = {
+    ...datasetAttributes,
+    paged: datasetAttributes.paged || 1,
     base: basename
-  })
+  }
+  const [getAttributes, setAttributes, subscribeAtrributes] = useStore(initialAttributes)
 
   const [getAbort, setAbort] = useStore(new AbortController())
   const [, setIsLoading, subscribeIsLoading] = useStore(false)
@@ -29,6 +30,9 @@ const start = () => {
   })
 
   subscribeAtrributes(attributes => {
+    if (attributes === initialAttributes) return // Because the attributes are the same as the initial ones
+    if (!form && !presentations.querySelector('.navigation')) return // Because the form and the pagination are not present
+
     // Replace url with the new one
     const publicAttributes = pick(attributes, ['paged', 's-search', 's-order', 's-category'])
     const newUrl = concatUrlWithParams(basename, publicAttributes)
