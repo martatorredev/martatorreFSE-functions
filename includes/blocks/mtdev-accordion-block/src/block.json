@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "mtdev/accordion",
+	"title": "Acordeon",
+	"category": "widgets",
+	"icon": "sort",
+  "supports": {
+    "align": [ "wide", "full" ],
+    "anchor": true,
+    "html": false
+  },
+  "attributes": {
+    "align": {
+      "type": "string"
+    },
+    "headerContent": {
+      "type": "string",
+			"source": "html",
+			"selector": ".mtdev-accordion h1, .mtdev-accordion h2, .mtdev-accordion h3, .mtdev-accordion h4, .mtdev-accordion h5, .mtdev-accordion h6, .mtdev-accordion p",
+			"default": ""
+    },
+    "level": {
+			"type": "number",
+			"default": 3
+		},
+    "spacing": {
+      "type": "object"
+    }
+  },
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
+

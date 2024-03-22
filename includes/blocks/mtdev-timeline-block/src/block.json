@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "mtdev/timeline",
+	"title": "Timeline",
+	"category": "widgets",
+	"icon": "clock",
+  "supports": {
+    "align": false,
+    "anchor": true,
+    "html": false
+  },
+  "attributes": {
+    "data": {
+      "type": "array",
+      "default": [
+        {
+          "uuid": "601b145f-b539-433a-98c0-45adf3f85d66",
+          "title": "20XX",
+          "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus culpa placeat qui molestias dolorem eius sed odio optio eligendi repudiandae?"
+        },
+        {
+          "uuid": "601b145f-b539-433a-98c0-45adf3f85d67",
+          "title": "20XX",
+          "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus culpa placeat qui molestias dolorem eius sed odio optio eligendi repudiandae?"
+        },
+        {
+          "uuid": "601b145f-b539-433a-98c0-45adf3f85d68",
+          "title": "20XX",
+          "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus culpa placeat qui molestias dolorem eius sed odio optio eligendi repudiandae?"
+        }
+      ]
+    }
+  },
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
+

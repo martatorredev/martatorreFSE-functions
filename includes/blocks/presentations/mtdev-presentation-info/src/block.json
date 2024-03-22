@@ -1,0 +1,17 @@
+{
+	"apiVersion": 3,
+	"name": "mtdev/presentation-info",
+	"title": "Informacion de la ponencia",
+	"category": "widgets",
+	"icon": "columns",
+  "usesContext": ["postId"],
+  "supports": {
+    "align": false,
+    "html": false
+  },
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./style-index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
+

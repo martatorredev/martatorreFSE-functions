@@ -1,0 +1,42 @@
+.project-info {
+  &__title {
+    font-family: var(--wp--preset--font-family--space-grotesk);
+    font-size: 1rem;
+    font-style: normal;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__text {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0.25rem 0 1.5rem;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.4;
+
+    a:not([class]) {
+      color: #0077CB;
+      text-decoration: underline;
+      background-image: linear-gradient(to bottom, #0077CB 0%, #0077CB 100%);
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: 0% 1.3em;
+      transition: background-size 0.4s 0.2s, color 0.4s 0.2s;
+
+      &:hover,
+      &:focus {
+        background-size: 100% 1.3em;
+        transition-delay: 0s;
+        color: white;
+      }
+    }
+  }
+}
+

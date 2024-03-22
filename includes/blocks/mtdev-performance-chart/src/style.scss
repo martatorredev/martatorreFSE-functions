@@ -1,0 +1,47 @@
+.mtdev-perf-chart {
+  font-size: 1rem;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  aspect-ratio: 2 / 1;
+  border-radius: 100vw 100vw 0 0;
+  overflow: hidden;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2.5rem solid var(--color);
+    border-bottom: none;
+    border-radius: 100vw 100vw 0 0;
+    transform-origin: center bottom;
+    transform: rotate(180deg);
+    transition: transform 1s, border-color 1s;
+  }
+
+  &::before {
+    border-color: #fbfbfc;
+    transform: rotate(0deg);
+  }
+
+  &.is-in-view::after {
+    transform: rotate(
+      calc(
+        1turn * ((var(--percent, 0) / 100) / 2) + 0.5turn
+      )
+    );
+  }
+
+  .mtdev-perf-chart__percent {
+    margin-top: 1.5em;
+    font-family: var(--wp--preset--font-family--space-grotesk);
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+}

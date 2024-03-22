@@ -1,0 +1,48 @@
+@import '../../shared/responsive.scss';
+
+.colaborations__container {
+  display: grid;
+  grid-auto-rows: 1fr;
+  gap: 2rem;
+
+
+  @include mq('medium') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq('large') {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.colaboration__logo {
+  width: 100%;
+}
+
+.colaboration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  position: relative;
+}
+
+.colaboration__name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 0;
+  background-color: var(--wp--preset--color--mt-purple);
+  color: white;
+  text-decoration: underline;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.colaboration__name:hover,
+.colaboration__name:focus-visible {
+  opacity: 1;
+  color: white;
+}

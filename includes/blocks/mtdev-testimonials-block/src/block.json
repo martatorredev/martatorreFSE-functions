@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+  "name": "mtdev/testimonials",
+	"title": "Testimonios",
+	"version": "0.1.0",
+	"category": "widgets",
+	"icon": "format-chat",
+  "supports": {
+    "html": false,
+    "align": [ "wide", "full" ]
+  },
+  "attributes": {
+    "align": {
+      "type": "string"
+    },
+    "category": {
+      "type": "number",
+      "default": -1
+    },
+    "order": {
+      "type": "string",
+			"default": "desc"
+		},
+		"orderBy": {
+      "type": "string",
+			"default": "date"
+		},
+    "postsToShow": {
+      "type": "number",
+      "default": 3
+    },
+    "selectRandomTestimonials": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+	"editorScript": "file:./index.js",
+  "viewScript": "file:./view.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
+

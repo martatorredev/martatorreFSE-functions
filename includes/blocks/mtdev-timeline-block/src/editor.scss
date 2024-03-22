@@ -1,0 +1,42 @@
+
+.mtdev-timeline-item__button {
+  background: var(--wp--preset--color--mt-green);
+  color: var(--wp--preset--color--mt-dark-blue);
+  width: 2rem;
+  height: 2rem;
+  padding: 0.2rem;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.mtdev-timeline-item__controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 0.4rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.mtdev-timeline-item:hover .mtdev-timeline-item__controls {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mtdev-timeline-item {
+  position: relative;
+}
+
+.mtdev-timeline-item__title {
+  font-size: 1.875rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
