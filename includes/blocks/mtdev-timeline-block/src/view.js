@@ -1,52 +1,89 @@
-import { inRange, throttle } from 'lodash'
-import { logoString } from './assets/logo'
-import { createLine, createMarker, createPoints } from './utils'
 
-const MARKER_OFFSET = 25
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { createLine, createMarker, createPoints, pointValues, positionPoints } from './utils'
 
-window.addEventListener('load', () => {
+gsap.registerPlugin(ScrollTrigger)
+
+const SNAP_PROXIMITY = 40
+const SNAP_EASE = 0.5
+
+window.addEventListener('DOMContentLoaded', () => {
   const timeline = document.querySelector('.mtdev-timeline')
   if (!timeline) return
 
   const line = createLine()
-  const points = createPoints(timeline)
   const marker = createMarker()
 
-  // Insert the logo
-  marker.innerHTML = logoString
-
-  // Insert the line and points
-  line.append(marker, ...points)
+  line.append(marker)
   timeline.append(line)
 
-  let pointPositions = points.map(point => point.getBoundingClientRect().top + window.scrollY)
+  let timelineHeight = createPoints(timeline, line)
 
-  const handleScroll = throttle(() => {
-    const centerPosition = window.scrollY + window.innerHeight / 2
-    const isMobile = window.innerWidth < 768
-    const offset = !isMobile
-      ? MARKER_OFFSET
-      : MARKER_OFFSET * 0.6
+  const scrollPos = { pos: 0 }
 
-    if (pointPositions.some(position => inRange(centerPosition, position - offset, position + offset))) {
-      marker.classList.add('active')
-    } else {
-      marker.classList.remove('active')
-    }
-  }, 100)
-
-  const handleResize = throttle(() => {
-    // Recalculate points top style
-    const items = timeline.querySelectorAll('.mtdev-timeline-item')
-    items.forEach((item, index) => {
-      const position = item.offsetTop + item.offsetHeight / 2
-      points[index].style.top = `${position}px`
+  const easedAnimation = gsap
+    .timeline({ paused: true, defaults: { ease: 'linear' } })
+    .to(marker, {
+      y: timelineHeight
     })
 
-    // Recalculate pointPositions
-    pointPositions = points.map(point => point.getBoundingClientRect().top + window.scrollY)
-  }, 100)
+  const animation = gsap
+    .timeline({
+      defaults: {
+        ease: 'linear'
+      },
+      onUpdate: () => {
+        marker.dataset.snapped = pointValues.includes(scrollPos.pos)
+        marker.dataset.start = scrollPos.pos === 0
+        marker.dataset.end = scrollPos.pos === timelineHeight
+      }
+    })
+    .to(scrollPos, {
+      pos: timelineHeight,
+      snap: {
+        pos: {
+          values: pointValues,
+          radius: SNAP_PROXIMITY
+        }
+      }
+    })
 
-  window.addEventListener('scroll', handleScroll)
-  window.addEventListener('resize', handleResize)
+  ScrollTrigger.create({
+    animation,
+    trigger: timeline,
+    start: 'top center',
+    end: 'bottom center',
+    scrub: true,
+    onRefresh: () => {
+      timelineHeight = positionPoints(timeline)
+      animation.clear().fromTo(
+        scrollPos,
+        { pos: 0 },
+        {
+          pos: timelineHeight,
+          snap: {
+            pos: {
+              values: pointValues,
+              radius: SNAP_PROXIMITY
+            }
+          }
+        }
+      )
+      easedAnimation.clear().fromTo(
+        marker,
+        { y: 0 },
+        {
+          y: timelineHeight
+        }
+      )
+    }
+  })
+
+  gsap.ticker.add(() => {
+    let easedProgress = easedAnimation.progress()
+    const animationProgress = scrollPos.pos / timelineHeight
+    easedProgress += (animationProgress - easedProgress) * SNAP_EASE * gsap.ticker.deltaRatio(30)
+    easedAnimation.progress(easedProgress)
+  })
 })
