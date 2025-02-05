@@ -26,3 +26,6 @@ require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/blocks/blocks.php';
 
 // Head
 require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/head.php';
+
+// Gravity Forms
+require_once MTDEV_EXTRAS_PLUGIN_PATH . '/includes/gforms.php';
