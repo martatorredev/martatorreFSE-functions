@@ -1,5 +1,5 @@
 import { RichText, useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor'
-import background from './img/fondopixeles.png'
+import background from './img/fondopixeles.webp'
 
 const save = ({ attributes: { title, subtitle, titleLevel } }) => {
   const TitleTag = 'h' + titleLevel
@@ -29,6 +29,8 @@ const save = ({ attributes: { title, subtitle, titleLevel } }) => {
         className='hero-banner__background'
         src={background}
         alt='Imagen de fondo'
+        width={1920}
+        height={460}
       />
     </header>
   )

@@ -11,7 +11,7 @@ import {
 } from '@wordpress/components'
 
 import HeadingLevelDropdown from './heading-level-dropdown'
-import background from './img/fondopixeles.png'
+import background from './img/fondopixeles.webp'
 
 const Edit = ({ attributes, setAttributes }) => {
   const { title, subtitle, titleLevel, showOnlyInnerBlocks } = attributes || {}
@@ -68,6 +68,8 @@ const Edit = ({ attributes, setAttributes }) => {
           className='hero-banner__background'
           src={background}
           alt='Imagen de fondo'
+          width={1920}
+          height={460}
         />
       </header>
     </>
