@@ -3,7 +3,7 @@
  * Plugin Name: Martatorre Functions
  * Description: Este plugin contiene el registro de CPTs, bloques y custom fields.
  * Version:     1.0.0
- * Author:      EliezerSPP
+ * Author:      Marta Torre
  */
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
